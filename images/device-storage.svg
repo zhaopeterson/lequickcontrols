@@ -1,0 +1,27 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="67" height="91" viewBox="0 0 67 91">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 3px;
+      }
+
+      .cls-2 {
+        fill: #414142;
+      }
+
+      .cls-3 {
+        fill: #06a14b;
+      }
+    </style>
+  </defs>
+  <title>device-storage</title>
+  <g>
+    <polygon class="cls-1" points="41.69 1.5 1.5 1.5 1.5 89.5 65.5 89.5 65.5 25.31 41.69 1.5"/>
+    <polygon class="cls-2" points="41.69 1.5 1.5 1.5 1.5 89.5 65.5 89.5 65.5 25.31 41.69 1.5"/>
+    <rect class="cls-3" x="1.5" y="74.42" width="64" height="15.08"/>
+  </g>
+</svg>

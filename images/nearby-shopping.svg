@@ -1,0 +1,35 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="33.77" height="32.47" viewBox="-10 -12 54 54">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke: #231f20;
+        stroke-width: 2.5px;
+      }
+
+      .cls-1 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2, .cls-3 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-3 {
+        fill: #d1d2d3;
+      }
+    </style>
+  </defs>
+  <title>nearby-shopping</title>
+  <g>
+    <circle class="cls-1" cx="9.07" cy="28.61" r="2.61"/>
+    <circle class="cls-1" cx="29.92" cy="28.61" r="2.61"/>
+    <polyline class="cls-2" points="1.25 1.25 6.46 1.25 10.37 22.1 28.61 22.1 32.52 6.46 7.76 6.46"/>
+    <line class="cls-3" x1="12.98" y1="11.66" x2="20.79" y2="11.66"/>
+    <line class="cls-3" x1="15.58" y1="16.96" x2="23.4" y2="16.96"/>
+  </g>
+</svg>

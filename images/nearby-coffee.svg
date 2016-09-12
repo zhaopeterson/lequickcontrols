@@ -1,0 +1,17 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="35.78" height="20.1" viewBox="-9 -17 54 54">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #231f20;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2.5px;
+      }
+    </style>
+  </defs>
+  <title>nearby-coffee</title>
+  <path class="cls-1" d="M38.07,21.85h3.65A1.32,1.32,0,0,1,43,23.17v4.49A1.32,1.32,0,0,1,41.72,29h-5" transform="translate(-8.7 -17.26)"/>
+  <polygon class="cls-1" points="25.91 18.63 9.87 18.63 7.19 1.25 28.58 1.25 25.91 18.63"/>
+  <line class="cls-1" x1="1.25" y1="18.85" x2="34.53" y2="18.85"/>
+</svg>

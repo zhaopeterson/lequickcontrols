@@ -1,0 +1,25 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="28.42" height="34.92" viewBox="-12 -11 54 54">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #333;
+        stroke-miterlimit: 10;
+        stroke-width: 2.5px;
+      }
+
+      .cls-1 {
+        stroke-linecap: round;
+      }
+    </style>
+  </defs>
+  <title>nearby-food</title>
+  <g>
+    <line class="cls-1" x1="5.3" y1="15.3" x2="5.3" y2="33.67"/>
+    <ellipse class="cls-2" cx="5.3" cy="8" rx="4.05" ry="6.75"/>
+  </g>
+  <g>
+    <line class="cls-1" x1="22.5" y1="1.29" x2="22.5" y2="33.67"/>
+    <path class="cls-1" d="M30.83,11.91v5.35c0,4.5,2.09,8.09,4.67,8.09s4.67-3.63,4.67-8.09v-5.4" transform="translate(-13 -10.62)"/>
+  </g>
+</svg>

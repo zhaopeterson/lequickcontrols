@@ -1,0 +1,30 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="43" height="28.34" viewBox="-6 -13 54 54">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #333;
+        stroke-linecap: round;
+        stroke-width: 2.5px;
+      }
+
+      .cls-1 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        stroke-linejoin: round;
+      }
+    </style>
+  </defs>
+  <title>nearby-bar</title>
+  <g>
+    <line class="cls-1" x1="9.15" y1="15.67" x2="9.15" y2="27.09"/>
+    <polygon class="cls-2" points="1.25 6.01 17.05 6.01 9.15 16.55 1.25 6.01"/>
+    <line class="cls-1" x1="3.88" y1="27.09" x2="14.42" y2="27.09"/>
+  </g>
+  <g>
+    <path class="cls-2" d="M42,17.3h3a2.16,2.16,0,0,1,2.15,2.15v11.2A2.16,2.16,0,0,1,45,32.81H42" transform="translate(-5.42 -13.47)"/>
+    <rect class="cls-2" x="21.08" y="1.25" width="15.5" height="25.84"/>
+  </g>
+</svg>

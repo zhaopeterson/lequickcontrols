@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>EUI 6.0 Design Cards - CB</title>
+        <link rel="stylesheet" href="js/lib/jquery-ui-1.11.4/jquery-ui.min.css" />
+        <link rel="stylesheet" href="css/sanspro.css" />
+        <link rel="stylesheet" href="css/roboto.css" />
+        <link rel="stylesheet" href="css/launcher.css" />
+        <link rel="stylesheet" href="css/drawer.css" />
+        <link rel="stylesheet" href="css/widgetcard.css" />
+        <link rel="stylesheet" href="css/pages.css" />
+        <link rel="stylesheet" href="css/themes.css" />
+        <link rel="stylesheet" href="css/quickaccess.css" />
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <link rel="shortcut icon" sizes="196x196" href="images-eui6/app-icon-craft.png">
+        <script type="text/javascript" src="cordova.js"></script>
+
+        <script src="js/lib/jquery-1.11.0.js" type="text/javascript"></script>
+        <script src="js/lib/jquery-ui-1.11.4/jquery-ui.js"></script>
+        <script type="text/javascript" src="js/jquery.ui.touch-punch.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-events.js"></script>
+        <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="js/jquery.simpleWeather.min.js"></script>
+        <script type="text/javascript" src="js/hammer.min.js"></script>
+        <meta name="mobile-web-app-capable" content="yes">
+        <script type="text/javascript" src="js/launcher.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <!--<script type="text/javascript" src="js/iscroll/iscroll.js"></script>-->
+        <script type="text/javascript" src="js/iscroll/iscroll-probe.js"></script>
+
+        <style type="text/css">
+            ::-webkit-scrollbar {
+            width: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="global-container">
+            <div id="sharp-container"></div>
+            <div id="blurfilter-container"></div>
+            <div class="quickaccess-container">
+                <div class="qa-close-container" id="styles-closebutton"></div>
+                <h2> Cards Styles Controls</h2>
+                <div id="quickaccess-wrapper">
+                    <div id="quickaccess-scroller">
+                        <div class="cards-style-container">
+                            <p>Solid Background Color</p>
+                            <button id='bg2c2c2c' class='bglayercolor selected' data-hex='#2c2c2c'>#2c2c2c</button>
+                            <button id='bg000000' class='bglayercolor' data-hex='#000000'>#000000</button>
+                        </div>
+                        <div class="cards-style-container">
+                            <p>Blur Image opacity</p>
+                            <button id='alpha50' class='bluropacity selected' data-alpha='0.5'>0.5</button>
+                            <button id='alpha25' class='bluropacity' data-alpha='0.25'>0.25</button>
+                        </div>
+
+                        <div class="cards-style-container">
+                            <p>Card Scrim Opacity</p>
+
+                            <p>rgba(56, 56, 56, <span id="scrim">0.6</span> )</p>
+                            <div id="cardscrim-opacity"></div>
+                        </div>
+                        <div class="cards-style-container">
+                            <p>Backgrounds Images</p>
+                            <img class='bgstyle-thumb' data-bgimage = 'url(images-eui6/bg-bluepattern.jpg)'  data-blurimage = 'url(images-eui6/bg-bluepattern-blur.jpg)' src="images-eui6/bg-bluepattern.jpg">
+                            <img class='bgstyle-thumb' data-bgimage = 'url(images-eui6/bg-cherryblossom.jpg)' data-blurimage = 'url(images-eui6/bg-cherryblossom-blur.jpg)' src="images-eui6/bg-cherryblossom.jpg">
+                            <img class='bgstyle-thumb' data-bgimage = 'url(images-eui6/bg-prettygirl.jpg)' data-blurimage = 'url(images-eui6/bg-prettygirl-blur.jpg)' src="images-eui6/bg-prettygirl.jpg">
+                            <img class='bgstyle-thumb' data-bgimage = 'url(images-eui6/bg-shark.jpg)' data-blurimage = 'url(images-eui6/bg-shark-blur.jpg)' src="images-eui6/bg-shark.jpg">
+                            <img class='bgstyle-thumb' data-bgimage = 'url(images-eui6/bg-snow.jpg)' data-blurimage = 'url(images-eui6/bg-snow-blur.jpg)' src="images-eui6/bg-snow.jpg">
+                            <img class='bgstyle-thumb' data-bgimage = 'url(images-eui6/bg-starrynight.jpg)' data-blurimage = 'url(images-eui6/bg-starrynight-blur.jpg)'  src="images-eui6/bg-starrynight.jpg">
+                            <img class='bgstyle-thumb' data-bgimage = 'url(images-eui6/bg-whitecrack.jpg)' data-blurimage = 'url(images-eui6/bg-whitecrack-blur.jpg)' src="images-eui6/bg-whitecrack.jpg">
+                            <img class='bgstyle-thumb' data-bgimage = 'url(images-eui6/bg-firework.jpg)' data-blurimage = 'url(images-eui6/bg-firework-blur.jpg)' src="images-eui6/bg-firework.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  end of quick access panel page  -->
+            <!--  Start of the favapps-container  -->
+            <div class="favapps-global-wrapper">
+                <div class="favapps-emptymsg-global-container">
+                    <div class="favapps-empty-message">
+                        <h2 class='empty-msg-title'>Favorite Apps is Empty</h2>
+                        <p class='empty-msg-style'>Would you like to continue or hide the Favorite Apps card? You can always re-enable it in the Card Screen settings.</p>
+                        <p class="continue" id="button-continue">CONTINUE</p>
+                        <p class="hidecard" id="button-hidecard">HIDE CARD</p>
+                    </div>
+                </div>
+                <div class="max8-toastmessage">
+                    <p>Please remove at least one app before adding more.</p>
+                </div>
+                <div class="favapps-container">
+                    <div id="favapps-all-container" >
+                        <div id="favapps-scroller">
+                            <ul id="favapps-all" class="favapps-sortable">
+                                <li data-imgsrc="fa_clock.png" data-favapp-name="Clock" class="favorite">
+                                    <img src="images-eui6/fa_clock.png"><span>Clock</span>
+                                </li>
+                                <li data-imgsrc="fa_music.png" data-favapp-name="Music" class="favorite">
+                                    <img src="images-eui6/fa_music.png"><span>Music</span>
+                                </li>
+                                <li data-imgsrc="fa_hangouts.png" data-favapp-name="Hangouts" class="favorite">
+                                    <img src="images-eui6/fa_hangouts.png"><span>Hangouts</span>
+                                </li>
+                                <li data-imgsrc="fa_fitbit.png" data-favapp-name="Fitbit">
+                                    <img src="images-eui6/fa_fitbit.png"><span>Fitbit</span>
+                                </li>
+                                <li data-imgsrc="fa_phone.png" data-favapp-name="Phone" class="favorite">
+                                    <img src="images-eui6/fa_phone.png"><span>Phone</span>
+                                </li>
+                                <li data-imgsrc="fa_facebook.png" data-favapp-name="Facebook">
+                                    <img src="images-eui6/fa_facebook.png"><span>Facebook</span>
+                                </li>
+                                <li data-imgsrc="fa_instagram.png" data-favapp-name="Instagram">
+                                    <img src="images-eui6/fa_instagram.png"><span>Instagram</span>
+                                </li>
+                                <li data-imgsrc="fa_crossyroad.png" data-favapp-name="Crossy Road">
+                                    <img src="images-eui6/fa_crossyroad.png"><span>Crossy Road</span>
+                                </li>
+                                <li data-imgsrc="fa_spotify.png" data-favapp-name="Spotify">
+                                    <img src="images-eui6/fa_spotify.png"><span>Spotify</span>
+                                </li>
+                                <li data-imgsrc="fa_amazon.png" data-favapp-name="Amazon">
+                                    <img src="images-eui6/fa_amazon.png"><span>Amazon</span>
+                                </li>
+                                <li data-imgsrc="fa_browser.png" data-favapp-name="Browser">
+                                    <img src="images-eui6/fa_browser.png"><span>Browser</span>
+                                </li>
+                                <li data-imgsrc="fa_netflix.png" data-favapp-name="Netflix">
+                                    <img src="images-eui6/fa_netflix.png"><span>Netflix</span>
+                                </li>
+                                <li data-imgsrc="fa_hbo.png" data-favapp-name="HBO now">
+                                    <img src="images-eui6/fa_hbo.png"><span>HBO Now</span>
+                                </li>
+                                <li data-imgsrc="fa_twitter.png" data-favapp-name="Twitter">
+                                    <img src="images-eui6/fa_twitter.png"><span>Twitter</span>
+                                </li>
+                                <li data-imgsrc="fa_pokeman.png" data-favapp-name="Pokeman GO">
+                                    <img src="images-eui6/fa_pokeman.png"><span>Pokeman GO</span>
+                                </li>
+                                <li data-imgsrc="fa_airbnb.png" data-favapp-name="Airbnb">
+                                    <img src="images-eui6/fa_airbnb.png"><span>Airbnb</span>
+                                </li>
+                                <li data-imgsrc="fa_camera.png" data-favapp-name="Camera">
+                                    <img src="images-eui6/fa_camera.png"><span>Camera</span>
+                                </li>
+                                <li data-imgsrc="fa_gamecenter.png" data-favapp-name="Game Center">
+                                    <img src="images-eui6/fa_gamecenter.png"><span>Game Center</span>
+                                </li>
+                                <li data-imgsrc="fa_gallery.png" data-favapp-name="Gallery">
+                                    <img src="images-eui6/fa_gallery.png"><span>Gallery</span>
+                                </li>
+                                <li data-imgsrc="fa_snapchat.png" data-favapp-name="Airbnb">
+                                    <img src="images-eui6/fa_snapchat.png"><span>Snapchat</span>
+                                </li>
+                                <li data-imgsrc="fa_linkedin.png" data-favapp-name="LinkedIn">
+                                    <img src="images-eui6/fa_linkedin.png"><span>LinkedIn</span>
+                                </li>
+                                <li data-imgsrc="fa_espn.png" data-favapp-name="ESPN">
+                                    <img src="images-eui6/fa_espn.png"><span>ESPN</span>
+                                </li>
+                                <li data-imgsrc="fa_msword.png" data-favapp-name="Miscosoft Word">
+                                    <img src="images-eui6/fa_msword.png"><span>Microsoft Word</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="favapps-selected-container">
+                        <div id="favapps-manager-closebutton"></div>
+                        <div class="widget-title" id="widget-favapps-title" data-widgetapps="recentapps" data-widgetcolor="#18c9b2">
+                            <h2>Favorite Apps</h2>
+                        </div>
+                        <ul id="favapps-selected" class="favapps-sortable">
+                            <li data-favapp-name="Clock"><img src="images-eui6/fa_clock.png"><span>Clock</span></li>
+                            <li data-favapp-name="Music"><img src="images-eui6/fa_music.png"><span>Music</span></li>
+                            <li data-favapp-name="Hangouts"><img src="images-eui6/fa_hangouts.png"><span>Hangouts</span></li>
+                        </ul>
+                        <div class="favapps-dropzone"></div>
+                        <div class="dropzone-highlight-container"></div>
+                    </div>
+                </div>
+                <!--  global container for favapps   -->
+            </div>
+            <div id="header">
+                <div class="statusbar-wrapper"></div>
+            </div >
+            <!--   end of header   -->
+            <section id="viewport">
+                <div id="indicator-home">
+                    <ul>
+                        <li id="p1"></li>
+                        <li id="p2" class="active"></li>
+                        <li id="p3"></li>
+                    </ul>
+                </div>
+                <div class="home-icons-wrapper">
+                    <div class="home-icons-scrim"></div>
+                    <ul>
+                        <li class="app-home-icon" >
+                            <div class="notification-no" id="phone"></div>
+                            <img src="images-eui6/aic_phone.png" id="phone-button">
+                        </li>
+                        <li class="app-home-icon" id="message-button">
+                            <div class="notification-no" id="textmsg"></div>
+                            <img src="images-eui6/aic_message.png">
+                        </li>
+                        <li class="app-home-icon"><img src="images-eui6/aic-lelive.png"></li>
+                        <li class="app-home-icon"><img src="images-eui6/aic-chrome.png"  id="reload-button"></li>
+                        <li class="app-home-icon"><img src="images-eui6/aic_appdrawer.png"></li>
+                    </ul>
+                </div>
+                <div id="page-wrapper">
+                    <div id="scroller">
+                        <div class = 'launcher-screen-row' id="droppable">
+                            <div class="launcher-row-hotspot"></div>
+                            <section id="minus1" class="launcher-screen">
+                                <div class="widget-targetapp-placeholder">
+                                    <div class="app-container" id="app-livevideo"><img src="images/poster-lelive.jpg"></div>
+                                    <div class="app-container" id="app-sports"><img src="images/poster-lesports.jpg"></div>
+                                    <div class="app-container" id="app-dateweather"><img src="images/app-weather-screen.jpg"></div>
+                                    <div class="app-container" id="app-wallpaper"><img src="images/app-wallpaper-screen.jpg"></div>
+                                    <div class="app-container" id="app-leecovideo"><img src="images/app-placeholder-screen.png"></div>
+                                    <div class="app-container" id="app-music"><img src="images/app-music-screen.jpg"></div>
+                                    <div class="app-container" id="app-notes"><img src="images/app-notes-screen.jpg"></div>
+                                    <div class="app-container" id="app-mail"><img src="images/app-mail-screen.jpg"></div>
+                                    <div class="app-container" id="app-calendar"><img src="images/app-calendar-screen.jpg"></div>
+                                    <div class="app-container" id="app-devicestatus"><img src="images/app-placeholder-screen.png"></div>
+                                    <div class="app-container" id="app-news"><img src="images/poster-news-bestplace.jpg"></div>
+                                    <div class="app-container" id="app-leecovideo"></div>
+                                    <div class="app-container" id="poster-container">
+                                        <!-- <img style="width: 412px" src="images/poster-minnions.png"> -->
+                                    </div>
+                                </div>
+                                <!--  end of app placeholder  -->
+                                <div class="minus1-scrim"></div>
+                                <div id="widgets-wrapper">
+                                    <div id="widget-scroller">
+                                        <div class="widget-header" id="leeco-widgetpage-header">
+                                            <div class="widget-settings-menu">
+                                                <div class="line-1"></div>
+                                                <div class="line-2"></div>
+                                                <div class="line-3"></div>
+                                            </div>
+                                            <div class="widget-manager">
+                                                <div class="settings-container">
+                                                    <div class="widget-subpage-header">
+                                                        <h2>Card display settings</h2>
+                                                    </div>
+                                                    <div id="widget-settings-wrapper">
+                                                        <div id="widget-settings-scroller" >
+                                                            <p class="card-display">Card Display <span>(drag and drop to change card order)</spna></p>
+                                                            <ul class="edit-widgets" id="edit-widgets">
+                                                                <li data-widgetid="widget-recentapps"><img src="images-eui6/ic_favorites.png">Favorite Apps</li>
+                                                                <li data-widgetid="widget-places"><img src="images-eui6/ic_places_nearby.png">Places Nearby</li>
+                                                                <li data-widgetid="widget-livevideo"><img src="images-eui6/ic_lelive.png">Live</li>
+                                                                <li data-widgetid="widget-sports"><img src="images-eui6/ic_lesports.png">LeSports</li>
+                                                                <li data-widgetid="widget-calendar"><img src="images-eui6/ic_calendar.png">Calendar</li>
+                                                                <li data-widgetid="widget-notes"><img src="images-eui6/ic_notes.png">Notes</li>
+                                                                <li data-widgetid="widget-mail"><img src="images-eui6/ic_email.png">Mail</li>
+                                                                <li data-widgetid="widget-wallpaper" ><img src="images-eui6/ic_wallpapers.png">Wallpapers and Themes</li>
+                                                                <li data-widgetid="widget-games"><img src="images-eui6/ic_gamecenter.png">LeZone</li>
+                                                                <li data-widgetid="widget-devicestatus" ><img src="images-eui6/ic_devicestatus.png">Device Status</li>
+                                                                <li data-widgetid="widget-twitter"><img src="images-eui6/ic_twitter.png">Twitter</li>
+                                                            </ul>
+                                                        </div>
+                                                        <!--  end of widget settings scroller  -->
+                                                    </div>
+                                                    <!--  end of widget settings wrapper  -->
+                                                    <p class="card-display general-subtitle">General</p>
+                                                    <p class="launcher-settings-style">Launcher settings</p>
+                                                </div>
+                                                <!-- end of settings container  -->                 
+                                            </div>
+                                            <!--  end of widget manager  -->
+                                            <div class="widget-logo-container"></div>
+                                            <div class="widget-icon-profile"></div>
+                                        </div>
+                                        <!--  end of widget header  -->
+                                        <div id="widgets-content-wrapper">
+                                            <div class="widget-banner">
+                                                <div class="widgetbanner-time">10:45</div>
+                                                <div class="widgetbanner-date">
+                                                    <span class='lang-english'>Thursday, January 30</span>
+                                                   
+                                                </div>
+                                                <div class="widgetbanner-weather">
+                                                    <img src="images-eui6/icon-weather.png">
+                                                    <p>121 <span class="sub">o</span></p>
+                                                </div>
+                                                <div class="widgetbanner-location">
+                                                    <span class='lang-english'>Rancho Santa Margarita, CA</span>
+                                                    
+                                                </div>
+                                            </div>
+                                            <!--  end of widget banner  -->
+                                            <div class="widget-card" id="widget-recentapps">
+                                                <div class="widget-card-header " id="widget-card-header-recentapps">
+                                                    <div class="widget-title" id="widget-favapps-title" data-widgetapps="recentapps" data-widgetcolor="#18c9b2">
+                                                        <h2 class='lang-english'>Favorite Apps</h2>
+                                                        
+                                                    </div>
+                                                    <div class="more-content" id="more-recentapps" data-container="widget-recentapps" data-content="widget-content-recentapps"></div>
+                                                </div>
+                                                <div class="widget-content-container clearbg" id="widget-content-recentapps">
+                                                    <div id="favapps-launch-hotspot2"></div>
+                                                    <div class="zero-favappp-message">
+                                                        <p>Tap here to add your favorite apps.</p>
+                                                    </div>
+                                                    <div id="favapps-wrapper">
+                                                        <!-- <div class="favapps-launch-hotspot"></div> -->
+                                                        <div class="favapps-icon-wrapper" id="favapps-appdrawer">
+                                                            <img class='favapp-shortcut' src="images-eui6/fa_clock.png">
+                                                            <span class='lang-english'>Clock</span>
+                                                           
+                                                        </div>
+                                                        <div class="favapps-icon-wrapper">
+                                                            <img class='favapp-shortcut' src="images-eui6/fa_music.png">
+                                                            <span class='lang-english'>Music</span>
+                                                            
+                                                        </div>
+                                                        <div class="favapps-icon-wrapper">
+                                                            <img class='favapp-shortcut' src="images-eui6/fa_hangouts.png">
+                                                            <span class='lang-english'>Hangouts</span>                                              
+                                                        </div>
+                                                        <div class='favapps-add-wrapper' id='favapps-launch-hotspot'>
+                                                            <img class='favapp-shortcut' src='images-eui6/ic_add-light_normal.png'>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--  end of recent apps widget  -->
+                                            <div class="widget-card" id="widget-places">
+                                                <div class="widget-card-header" id="widget-card-header-places">
+                                                    <div class="widget-title" id="widget-places-title" data-widgetapps="places" data-widgetcolor="#18c9b2">
+                                                        <h2 class='lang-english'>Places Nearby</h2>
+                                                    </div>
+                                                    <div class="more-content" id="more-recentapps" data-container="widget-places" data-content="widget-content-places"></div>
+                                                </div>
+                                                <div class="widget-content-container clearbg" id="widget-content-places">
+                                                    <div id="places-wrapper">
+                                                        <div class="nearby-icon-wrapper" id="favapps-appdrawer">
+                                                            <img class='nearby-icon' src="images-eui6/ic-placesnearby-restaurants.png" >
+                                                            <span class='lang-english'>Restaurants</span>
+                                                        
+                                                        </div>
+                                                        <div class="nearby-icon-wrapper">
+                                                            <img class='nearby-icon' src="images-eui6/ic-placesnearby-coffeetea.png" >
+                                                            <span class='lang-english'>Coffee & Tea</span>
+                                                            
+                                                        </div>
+                                                        <div class="nearby-icon-wrapper">
+                                                            <img class='nearby-icon' src="images-eui6/ic-placesnearby-shopping.png">
+                                                            <span class='lang-english'>Shopping</span>
+                                                            
+                                                        </div>
+                                                        <div class="nearby-icon-wrapper">
+                                                            <img class='nearby-icon' src="images-eui6/ic-placesnearby-gas.png">
+                                                            <span class='lang-english'>Gas Station</span>
+                                                          
+                                                        </div>
+                                                        <div class="nearby-icon-wrapper">
+                                                            <img class='nearby-icon' src="images-eui6/ic-placesnearby-bars.png">
+                                                            <span class='lang-english'>Bars</span>
+                                                            
+                                                        </div>
+                                                        <div class="nearby-icon-wrapper">
+                                                            <img class='nearby-icon' src="images-eui6/ic-placesnearby-restaurants.png">
+                                                            <span class='lang-english'>Theaters</span>
+                                                            
+                                                        </div>
+                                                        <div class="nearby-icon-wrapper">
+                                                            <img class='nearby-icon' src="images-eui6/ic-placesnearby-atms.png">
+                                                            <span class='lang-english'>ATMs</span>
+                                                           
+                                                        </div>
+                                                        <div class="nearby-icon-wrapper">
+                                                            <img class="nearby-icon" src="images-eui6/ic_add-light_normal.png">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--  end of nearby widget  -->
+                                            <div class="widget-card" id="widget-livevideo">
+                                                <div class="widget-card-header" id="widget-card-header-livevideo">
+                                                    <div class="widget-title" data-widgetapps="livevideo" data-widgetcolor="#0aa750">
+                                                        <h2>Live</h2>
+                                                    </div>
+                                                    <div class="more-content" id="more-livevideo" data-container="widget-livevideo" data-content="widget-content-livevideo"></div>
+                                                </div>
+                                                <div class="widget-content-container" id="widget-content-livevideo">
+                                                    <div class="livevideo-container" data-videotype="play" data-poster="poster-miyang.jpg">
+                                                        <img class="widget-livevideo" src="images/lelive-miyang.png">
+                                                        <p class='lang-english'>Mi Yang</p>
+                                                        
+                                                        <div class="icon-playvideo" ></div>
+                                                    </div>
+                                                    <div class="livevideo-container" data-videotype="follow">
+                                                        <img class="widget-livevideo" src="images/lelive-worldwar2.jpg">
+                                                        <p class='lang-english'>World War II</p>
+                                                       
+                                                        <div class="icon-follow"></div>
+                                                    </div>
+                                                    <div class="livevideo-container" data-videotype="follow">
+                                                        <img class="widget-livevideo" src="images/lelive-backkom.jpg">
+                                                        <p class='lang-english'>Backkom</p>
+                                                        <p class='lang-chinese'>Backkom</p>
+                                                        <div class="icon-follow"></div>
+                                                    </div>
+                                                    <div class="livevideo-container" data-videotype="follow">
+                                                        <img class="widget-livevideo" src="images/lelive-biography.png">
+                                                        <p class='lang-english'>Biography</p>
+                                                       
+                                                        <div class="icon-follow"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--  end of widget live video  -->
+                                            <div class="widget-card" id="widget-sports">
+                                                <div class="widget-card-header" id="widget-card-header-sports">
+                                                    <div class="widget-title" data-widgetapps="sports" data-widgetcolor="#c358cd">
+                                                        <h2 class='lang-english'>LeSports</h2>
+                                                    
+                                                    </div>
+                                                    <div class="more-content" id="more-sports" data-container="widget-sports" data-content="widget-content-sports"></div>
+                                                </div>
+                                                <div class="widget-content-container" id="widget-content-sports">
+                                                    <div class="livevideo-container" data-videotype="play" data-poster="poster-worldcup.jpg">
+                                                        <img class="widget-livevideo"  src="images/lesports-worldcup.jpg">
+                                                        <p class='lang-english'>World Cup</p>
+                                                       
+                                                        <div class="icon-playvideo" data-poster="poster-placeholder.png"></div>
+                                                    </div>
+                                                    <div class="livevideo-container" data-videotype="follow">
+                                                        <img class="widget-livevideo"  src="images/lesports-nba.jpg">
+                                                        <p class='lang-english'>NBA</p>
+                                                     
+                                                        <div class="icon-follow"></div>
+                                                    </div>
+                                                    <div class="livevideo-container" data-videotype="follow">
+                                                        <img class="widget-livevideo" src="images/lesports-olympic.jpg">
+                                                        <p class='lang-english'>Olympics</p>
+                                                       
+                                                        <div class="icon-follow"></div>
+                                                    </div>
+                                                    <div class="livevideo-container" data-videotype="follow">
+                                                        <img class="widget-livevideo" src="images/lesports-mlb.jpg">
+                                                        <p class='lang-english'>MLB</p>
+                                                      
+                                                        <div class="icon-follow"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--  end of widget sports  -->
+                                            <div class="widget-card" id="widget-calendar">
+                                                <div class="widget-card-header" id="widget-card-header-calendar">
+                                                    <div class="widget-title" data-widgetapps="calendar" data-widgetcolor="#c358cd">
+                                                        <h2 class='lang-english'>Calendar</h2>
+                                                    
+                                                        <p class="calendar-weekday">Thu</p>
+                                                        <p class="calendar-day">30</p>
+                                                    </div>
+                                                    <div class="more-content" id="more-calendar" data-container="widget-calendar" data-content="widget-content-calendar"></div>
+                                                </div>
+                                                <div class="widget-content-container" id="widget-content-calendar">
+                                                    <p class="card-calendar-item lang-english"><span class="schedule-time">11:00 AM </span>
+                                                        Staffs Meeting @ San Jose office with Product Design Team
+                                                    </p>
+                                                    <p class="card-calendar-item lang-english">
+                                                        <span class="schedule-time">2:00 AM </span>Interview with Kenny Smith (Designer)
+                                                    </p>
+                                                    <p class="card-calendar-item lang-english">
+                                                        <span class="schedule-time">4:45 PM </span><span class='lang-english'>Dr appointment </span>
+                                                    </p>
+                                                    <p class="card-calendar-item lang-english"><span class="schedule-time">6:30 PM </span><span class='lang-english'> Dinner with John Ash (VP of Product)</span></p>
+                                                </div>
+                                            </div>
+                                            <!--  end of widget * to do list -->
+                                            <div class="widget-card" id="widget-notes">
+                                                <div class="widget-card-header" id="widget-card-header-notes">
+                                                    <div class="widget-title" data-widgetapps="notes" data-widgetcolor="#c358cd">
+                                                        <h2>Notes</h2>
+                                                    </div>
+                                                    <div class="more-content" id="more-notes" data-container="widget-notes" data-content="widget-content-notes"></div>
+                                                </div>
+                                                <div class="widget-content-container" id="widget-content-notes" >
+                                                    <p class="card-note-item lang-english">The button should be removed from the 5th table</p>
+                                                    <p class="card-note-item lang-english">Joseph will work on the requirements next Friday Meetup</p>
+                                                    <p class="card-note-item lang-english">Sprint 5 sprint planning</p>
+                                                    <p class="card-note-item lang-english">Product team will be flying to San Francisco for Trade Show</p>
+                                                </div>
+                                                <div id="addevent">
+                                                    <div class="addevent-style">
+                                                        <p class="addevent-innercontainer">+ &nbsp; ADD AN EVENT</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--  end of widget notes-->
+                                            <div class="widget-card" id="widget-mail">
+                                                <div class="widget-card-header" id="widget-card-header-mail">
+                                                    <div class="widget-title" data-widgetapps="mail" data-widgetcolor="#c358cd">
+                                                        <h2>Email</h2>
+                                                    </div>
+                                                    <div class="more-content" id="more-mail" data-container="widget-mail" data-content="widget-content-mail"></div>
+                                                </div>
+                                                <div class="widget-content-container" id="widget-content-mail" >
+                                                    <div class="mail-item-container">
+                                                        <p class="mail-sender" id="first-mail">Mary Jefferson<span class="email-time"><img class="email-attachment" src="images-eui6/ic_paperclip.png">PM 03:56</span></p>
+                                                        <p class="mail-title">Sprint 3 Demo</p>
+                                                        <p class="mail-content">Hi guys, The demo will be started at 4pm. Please arrive on time </p>
+                                                    </div>
+                                                    <div class="mail-item-container">
+                                                        <p class="mail-sender">Tony Jefferson <span class="email-time"><img class="email-attachment" src="images-eui6/ic_paperclip.png">PM 01:12</span></p>
+                                                        <p class="mail-title">Plans for this weekend</p>
+                                                        <p class="mail-content">It’s time once again to plan our agenda. Where I can find</p>
+                                                    </div>
+                                                    <div class="mail-item-container">
+                                                        <p class="mail-sender">Joe Miller <span class="email-time"> Jan 29</span></p>
+                                                        <p class="mail-title">Is anyone driving to San Francisco office for the giants game </p>
+                                                        <p class="mail-content">I am planning to join the meeting tomorrow, but comething come up</p>
+                                                    </div>
+                                                    <div class="mail-item-container">
+                                                        <p class="mail-sender">Thomas Peterson <span class="email-time"><img class="email-attachment"src="images-eui6/ic_paperclip.png"> Jan 29</span></p>
+                                                        <p class="mail-title">VD files</p>
+                                                        <p class="mail-content">Please see the attachment</p>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!--  end of widget mail -->
+                                            <div class="widget-card" id="widget-wallpaper">
+                                                <div class="widget-card-header" id="widget-card-header-wallpaper">
+                                                    <div class="widget-title" data-widgetapps="wallpaper" data-widgetcolor="#c358cd">
+                                                        <h2>Wallpapers &#38; Themes</h2>
+                                                    </div>
+                                                    <div class="more-content" id="more-wallpaper" data-container="widget-wallpaper" data-content="widget-content-wallpaper"></div>
+                                                </div>
+                                                <div class="widget-content-container" id="widget-content-wallpaper" >
+                                                    <img src="images-eui6/wallpaper-fire.png">
+                                                    <img src="images-eui6/wallpaper-drop.png">
+                                                    <img src="images-eui6/wallpaper-earth.png">
+                                                    <img src="images/wallpaper-blueabstract.png">
+                                                    <img src="images/wallpaper-redabstract.png">
+                                                    <img src="images/wallpaper-greenabstract.png">
+                                                </div>
+                                            </div>
+                                            <!--  end of widget themes and wallpaper  -->
+                                            <div class="widget-card" id="widget-games">
+                                                <div class="widget-card-header" id="widget-card-header-games">
+                                                    <div class="widget-title" data-widgetapps="games" data-widgetcolor="#c358cd">
+                                                        <h2>LeZone</h2>
+                                                    </div>
+                                                    <div class="more-content" id="more-games" data-container="widget-games" data-content="widget-content-games"></div>
+                                                </div>
+                                                <div class="widget-content-container clearbg" id="widget-content-games" >
+                                                    <div class="game-icon-wrapper" >
+                                                        <img class='game-icon' src="images-eui6/game-pokemongo.png" >
+                                                        <span>Pokémon GO</span>
+                                                    </div>
+                                                    <div class="game-icon-wrapper" >
+                                                        <img class='game-icon' src="images-eui6/game-clashclan.png" >
+                                                        <span>Clash of Clan</span>
+                                                    </div>
+                                                    <div class="game-icon-wrapper" >
+                                                        <img class='game-icon' src="images-eui6/game-candycrush.png" >
+                                                        <span>Candy Crush</span>
+                                                    </div>
+                                                    <div class="game-icon-wrapper" >
+                                                        <img class='game-icon' src="images-eui6/game-farmheroes.png" >
+                                                        <span>Farm Heros</span>
+                                                    </div>
+                                                    <div class="game-icon-wrapper" >
+                                                        <img class='game-icon' src="images-eui6/game-angrybirds2.png" >
+                                                        <span>Angry Birds 2</span>
+                                                    </div>
+                                                    <div class="game-icon-wrapper" >
+                                                        <img class='game-icon' src="images-eui6/game-minecraft.png" >
+                                                        <span>Minecraft</span>
+                                                    </div>
+                                                    <div class="game-icon-wrapper" >
+                                                        <img class='game-icon' src="images-eui6/game-starwars.png" >
+                                                        <span>Star Wars™…</span>
+                                                    </div>
+                                                    <div class="game-icon-wrapper" >
+                                                        <img class='game-icon' src="images-eui6/game-twodots.png" >
+                                                        <span>Two Dots</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--  end of widget games -->
+                                            <div class="widget-card" id="widget-devicestatus">
+                                                <div class="widget-card-header" id="widget-card-header-devicestatus">
+                                                    <div class="widget-title" data-widgetapps="devicestatus" data-widgetcolor="#c358cd">
+                                                        <h2>Device Status</h2>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-content-container" id="widget-content-devicestatus" >
+                                                    <div class="devicestatus-container">
+                                                        <img src="images-eui6/device_battery.png">
+                                                        <p class="device-status-text">75%</p>
+                                                    </div>
+                                                    <div class="devicestatus-container">
+                                                        <img src="images-eui6/device_storage.png">
+                                                        <p class="device-status-text">48 GB Free</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--  end of widget device status -->
+                                            <div class="widget-card" id="widget-twitter">
+                                                <div class="widget-card-header" id="widget-card-header-twitter">
+                                                    <div class="widget-title" data-widgetapps="twitter" data-widgetcolor="#c358cd">
+                                                        <h2>Twitter Moments</h2>
+                                                    </div>
+                                                    <div class="more-content" id="more-games" data-container="widget-twitter" data-content="widget-content-twitter"></div>
+                                                </div>
+                                                <div class="widget-content-container" id="widget-content-twitter" >
+                                                    <div class="twitter-item-wrapper">
+                                                        <p class="twitter-title">
+                                                            <img src="images-eui6/twitter-item1.png">
+                                                            AMAZING&nbsp; •  2 &nbsp;hours ago
+                                                        </p>
+                                                        <p class="twitter-content">
+                                                            Can these Japanese pets see Pokemon?
+                                                        </p>
+                                                    </div>
+                                                    <div class="twitter-item-wrapper">
+                                                        <p class="twitter-title">
+                                                            <img src="images-eui6/twitter-item2.png">
+                                                            WORLD NEWS&nbsp; • &nbsp;3 hours ago
+                                                        </p>
+                                                        <p class="twitter-content">
+                                                            Suspect in Germany explosion identified as Syrian asylum...
+                                                        </p>
+                                                    </div>
+                                                    <div class="twitter-item-wrapper">
+                                                        <p class="twitter-title">
+                                                            <img src="images-eui6/twitter-item3.png">
+                                                            ELECTION 2016&nbsp; • &nbsp;4 hours ago
+                                                        </p>
+                                                        <p class="twitter-content">
+                                                            Trump gets poll bump after RNC as Clinton heads to DNC
+                                                        </p>
+                                                    </div>
+                                                    <div class="twitter-item-wrapper">
+                                                        <p class="twitter-title">
+                                                            <img src="images-eui6/twitter-item4.png">
+                                                            WEIRD&nbsp; • &nbsp;Yesterday
+                                                        </p>
+                                                        <p class="twitter-content">
+                                                            110-year old lobster saved from the dinner table
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--  end of widget apps and tips --> 
+                                        </div>
+                                        <!--  end of widgets content wrapper  -->
+                                        <!-- <p style="color: #fff; border: solid 1px orange; position: absolute; top: 2200px">My Last line</p> -->
+                                    </div>
+                                    <!--  end of widget scroller -->
+                                </div>
+                                <!--   !!!end of widgets wrapper    -->  
+                            </section>
+                            <!--  end of minus 1  -->
+                            <section id="zero" class="launcher-screen">
+                                <!-- <div class="minus1-container" style="position:absolute; left:-412px; width:412px; height:732px;background-color: orange; z-index:5000"></div> -->
+                                <div class="screenmanager-icon"></div>
+                                <div class="homeapp-container"></div>
+                                <div class="google-searcharea">
+                                    <input class="google-search" onclick="blur()"/>
+                                    <div class="google-searchareavoice"></div>
+                                </div>
+                                <!--                             <div id="home-time-widget">
+                                    <div class="widgetbanner-time" id="fulltime-trigger">10:45</div>
+                                    <div class="widgetbanner-date">Thursday, January 30</div>
+                                    </div> -->
+                                <div class="home-app-list" >
+                                    <ul class="listview-wrapper" id="home-sortable">
+                                        <li class="app-icon-wrapper accept-drawer-app empty grid-hotspot" ></li>
+                                        <li class="app-icon-wrapper"></li>
+                                        <li class="app-icon-wrapper accept-drawer-app empty"></li>
+                                        <li class="app-icon-wrapper accept-drawer-app empty grid-hotspot"></li>
+                                        <li class="app-icon-wrapper" id="calendar-app">
+                                            <img class='calendar-bg' src="images-eui6/aic_clock.png">
+                                            <p>Clock</p>
+                                            <!--                                     <p class="calendar-weekday">Thu</p>
+                                                <p class="calendar-day">30</p> -->
+                                        </li>
+                                        <li class="app-icon-wrapper">
+                                            <img src="images-eui6/aic_calendar_bg.png">
+                                             <p class="calendar-weekday">Thu</p>
+                                            <p class="calendar-day">30</p>
+                                            <p>Calendar</p>
+                                        </li>
+                                        <li class="app-icon-wrapper">
+                                            <img src="images-eui6/aic_contacts.png">
+                                            <p>Contacts</p>
+                                        </li>
+                                        <li class="app-icon-wrapper">
+                                            <img src="images-eui6/aic_weather.png">
+                                            <p>Weather</p>
+                                        </li>
+                                        <li class="app-icon-wrapper">
+                                            <img src="images-eui6/aic_mail.png">
+                                            <p>Mail</p>
+                                        </li>
+                                        <li class="app-icon-wrapper">
+                                            <img src="images-eui6/aic_compass.png">
+                                            <p>Compass</p>
+                                        </li>
+                                        <li class="app-icon-wrapper">
+                                            <img src="images-eui6/aic_game.png">
+                                            <p>Game Center</p>
+                                        </li>
+                                        <li class="app-icon-wrapper">
+                                            <img src="images-eui6/aic_myleeco.png">
+                                            <p>My Leeco</p>
+                                        </li>
+                                        <li class="app-icon-wrapper">
+                                            <img src="images-eui6/aic_player.png">
+                                            <p>Player</p>
+                                        </li>
+                                        <li class="app-icon-wrapper">
+                                            <img src="images-eui6/aic_music.png">
+                                            <p>Music</p>
+                                        </li>
+                                        <li class="app-icon-wrapper">
+                                            <img src="images-eui6/aic_settings.png">
+                                            <p>Settings</p>
+                                        </li>
+                                        <li class="app-icon-wrapper">
+                                            <img src="images-eui6/aic_gallery.png">
+                                            <p>Gallery</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!--  </div>  --><!--  end of gridlines  -->
+                                <div class="googlefolder-container" >
+                                    <p class="googlefolder-title">Google
+                                    <p>
+                                    <li class="app-icon-wrapper">
+                                        <img src="eui-icons/eui-google-logo.png">
+                                        <p>Google</p>
+                                    </li>
+                                    <li class="app-icon-wrapper">
+                                        <img src="eui-icons/eui-google-gmail.png">
+                                        <p>Gmail</p>
+                                    </li>
+                                    <li class="app-icon-wrapper">
+                                        <img src="eui-icons/eui-google-map.png">
+                                        <p>Maps</p>
+                                    </li>
+                                    <li class="app-icon-wrapper">
+                                        <img src="eui-icons/eui-google-youtube.png">
+                                        <p>YouTube</p>
+                                    </li>
+                                    <li class="app-icon-wrapper">
+                                        <img src="eui-icons/eui-google-drive.png">
+                                        <p>Drive</p>
+                                    </li>
+                                    <li class="app-icon-wrapper">
+                                        <img src="eui-icons/eui-google-playmusic.png">
+                                        <p>Play Music</p>
+                                    </li>
+                                    <li class="app-icon-wrapper">
+                                        <img src="eui-icons/eui-google-playmovies.png">
+                                        <p>Play Movies &#38; TV</p>
+                                    </li>
+                                    <li class="app-icon-wrapper">
+                                        <img src="eui-icons/eui-google-hangouts.png">
+                                        <p>Hangouts</p>
+                                    </li>
+                                    <li class="app-icon-wrapper">
+                                        <img src="eui-icons/eui-google-gallery.png">
+                                        <p>Photos</p>
+                                    </li>
+                                    <li class="app-icon-wrapper">
+                                        <img src="eui-icons/eui-google-settings.png">
+                                        <p>Google Settings</p>
+                                    </li>
+                                </div>
+                            </section>
+                            <!--  end of zero page  -->
+                            <section id="plus1" class="launcher-screen">
+                                <ul class="listview-wrapper" id="plus1-sortable">
+                                    <li class="app-icon-wrapper2" >
+                                        <div id="lewidget-note-container">
+                                            <img src="images/widget-twitter.png">
+                                        </div>
+                                    </li>
+                                    <li class="app-icon-wrapper2">
+                                    </li>
+                                    <li class="app-icon-wrapper2">
+                                    </li>
+                                    <li class="app-icon-wrapper">
+                                    </li>
+                                    <!--  row 2 -->
+                                    <li class="app-icon-wrapper2">
+                                    </li>
+                                    <li class="app-icon-wrapper2">
+                                    </li>
+                                    <li class="app-icon-wrapper2">
+                                    </li>
+                                    <li class="app-icon-wrapper remove-grid">
+                                    </li>
+                                    <!-- row 4 -->
+                                    <li class="app-icon-wrapper">
+                                        <img src="images-eui6/aic_downloads.png">
+                                        <p>Downloads</p>
+                                    </li>
+                                    <li class="app-icon-wrapper">
+                                        <img src="images-eui6/aic_updates.png">
+                                        <p>System Updates</p>
+                                    </li>
+                                    <li class="app-icon-wrapper">
+                                        <img src="images-eui6/aic_userguide.png">
+                                        <p>User Guide</p>
+                                    </li>
+                                    <li class="app-icon-wrapper">
+                                        <img src="images-eui6/aic_feedback.png">
+                                        <p>Feedback</p>
+                                    </li>
+                                    <li class="app-icon-wrapper">
+                                        <img src="images-eui6/aic_themes.png">
+                                        <p>Themes</p>
+                                    </li>
+                                    <li class="app-icon-wrapper">
+                                        <img src="images-eui6/aic_filemanager.png">
+                                        <p>Filemanager</p>
+                                    </li>
+                                    <li class="app-icon-wrapper">
+                                        <img src="images-eui6/aic_supermanager.png">
+                                        <p>Super Manager</p>
+                                    </li>
+                                    <li class="app-icon-wrapper">
+                                        <img src="images-eui6/aic_google.png">
+                                        <p>Google</p>
+                                    </li>
+                                </ul>
+                            </section>
+                        </div>
+                        <!--  end of launcher row -->
+                    </div>
+                    <!--  end of scroller  -->
+                </div>
+                <!--  end of page-wrapper  -->
+                <!--   ########### end of main page scroll area #############  -->
+                <div class="nav-buttons-wrapper">
+                    <ul>
+                        <li class="app-edit-icon-container" id="edit-widgets-button"><img class="app-edit-icon" src="images/icon-editmode-widgets.png" >Widgets</li>
+                        <li class="app-edit-icon-container" id="edit-themes-button"><img class="app-edit-icon" src="images/icon-edit-themes.png" >Themes</li>
+                        <li class="app-edit-icon-container" id="edit-wallpaper-button"><img class="app-edit-icon" src="images/icon-edit-wallpaper.png" >Wallpaper</li>
+                        <li class="app-edit-icon-container" id="edit-settings-button"><img class="app-edit-icon" src="images/icon-editmode-settings.png" >Settings</li>
+                    </ul>
+                </div>
+                <!--  end of app drawer  -->
+                <div class="wallpaper-container">
+                    <div class="theme-message"></div>
+                </div>
+                <div class="widget-container"><img src="images/widgets-screen.jpg">
+                </div>
+                <div class="systemsettings-container"><img src="images/settings-screen.jpg">
+                </div>
+                <div class="themes-container"><img src="images/app-wallpaper-screen.jpg">
+                </div>
+            </section>
+            <!--  viewport  -->
+            <footer id="footer">
+                <div class="hardware-buttons-wrapper">
+                    <ul>
+                        <li class="hardware-button" id="hardware-controlpanel"><img src="images/icon-square.png"></li>
+                        <li class="hardware-button" id="hardware-home"><img src="images/icon-circle.png"></li>
+                        <li class="hardware-button" id="hardware-back"><img src="images/icon-triangle.png"></li>
+                    </ul>
+                </div>
+            </footer>
+            <div class="audios-container">
+                <audio id="audio-player">
+                    <source src="http://www.protoranch.com/audio/Swan_Lake_30.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                <defs>
+                    <filter id="blur">
+                        <feGaussianBlur stdDeviation="5" />
+                    </filter>
+                </defs>
+            </svg>
+        </div>
+        <!--  end of gloable-container  -->
+    </body>
+</html>

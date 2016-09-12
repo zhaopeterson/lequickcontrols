@@ -1,0 +1,131 @@
+.quickaccess-container {
+	position: absolute;
+	top:800px;
+	left:0;
+	background:rgba(225,225,225,0.95);
+	width: 412px;
+	height: 732px;
+	z-index:1000;
+	padding:10px;
+	transition: all 0.15s;
+	color:#333;
+}
+
+.quickaccess-container.open-quickaccess {
+	top:420px;
+	transition: all 0.15s;
+}
+.quickaccess-container p {
+	font-size:13px;
+}
+.quickaccess-container h2 {
+	font-size: 16px;
+}
+#quickaccess-wrapper {
+position:absolute;
+top:30px;
+padding:10px;
+width: 392px;
+height:360px;
+overflow: hidden;
+}
+#quickaccess-scroller {
+position:absolute;
+z-index:1;
+-webkit-tap-highlight-color:rgba(0,0,0,0);
+width:412px;
+height:1200px;
+-webkit-transform:translateZ(0);
+transform:translateZ(0);
+-webkit-touch-callout:none;
+-webkit-user-select:none;
+user-select:none;
+-webkit-text-size-adjust:none;
+text-size-adjust:none
+}
+:focus {
+	outline:0;
+}
+
+.cards-style-container {
+	width:372px;
+	border: dotted 1px #2b97e9;
+	float:left;
+	margin-bottom:20px;
+}
+button {
+	border: 0;
+	padding: 0px 10px;
+	font-size:12px;
+		background:#fff;
+	min-width:60px;
+	min-height: 35px;
+	color: #2b97e9;
+	border-radius:3px;
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	margin:10px;
+}
+button.selected {
+
+	background-color: #2b97e9;
+	color:#fff;
+}
+.bordershadow-container {
+	width: 320px;
+	height:160px;
+	border: dotted 1px #2b97e9;
+}
+#shadow-opacity, #border-y, #border-spread, #cardscrim-opacity, #cards-padding{
+    width: 280px;
+    margin: 15px;
+}
+.ui-slider-horizontal {
+	height:8px;
+}
+.ui-corner-all {
+	border-radius:2px!important;
+}
+.ui-slider .ui-slider-handle {
+	-webkit-box-sizing: border-box;
+	width: 30px;
+	height: 30px;
+
+	border: solid 9px transparent!important;
+	top:-12px;
+	border-radius:15px!important;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	background: #2b97e9;
+}
+
+/*#shadow-opacity .ui-slider-range { background: rgba(0,0,0,.3); }*/
+#shadow-opacity .ui-slider-handle { border-color: #2b97e9; }
+
+/*#border-y .ui-slider-range { background: rgba(0,0,0,.3) }*/
+#border-y .ui-slider-handle { border-color: #2b97e9; }
+/*#border-spread .ui-slider-range { background: rgba(0,0,0,.33) }*/
+#border-spread .ui-slider-handle { border-color: #2b97e9; }
+
+.bgstyle-thumb {
+	width: 60px;
+	height:105px;
+	margin-right:10px;
+	margin-top:10px;
+}
+
+.bgstyle-thumb.selected {
+	border: solid 5px #2b97e9;
+}
+
+.qa-close-container {
+	position:absolute;
+	right:0;
+	top:0;
+	width:40px;
+	height:40px;
+	background-image: url(../images-eui6/ic_card_close_blue.png);
+	background-repeat: no-repeat;
+
+	background-size: 24px 24px;
+	background-position:center center;
+}

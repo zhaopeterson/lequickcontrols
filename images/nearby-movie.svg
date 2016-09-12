@@ -1,0 +1,28 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="37" height="34.34" viewBox="-9 -11 54 54">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+        stroke: #231f20;
+        stroke-width: 2.5px;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-linecap: round;
+      }
+
+      .cls-1, .cls-3 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        stroke-linejoin: round;
+      }
+    </style>
+  </defs>
+  <title>nearby-movie</title>
+  <rect class="cls-1" x="19.69" y="25.16" width="15.92" height="21.23" rx="1" ry="1" transform="translate(54.27 -2.52) rotate(90)"/>
+  <polygon class="cls-2" points="35.75 20.16 35.75 30.11 29.11 25.13 35.75 20.16"/>
+  <circle class="cls-3" cx="26.46" cy="9.21" r="7.96"/>
+  <circle class="cls-3" cx="9.21" cy="9.21" r="7.96"/>
+</svg>

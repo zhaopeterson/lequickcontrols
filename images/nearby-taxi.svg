@@ -1,0 +1,30 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="34.6" height="32.17" viewBox="-10 -12 54 54">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #333;
+        stroke-miterlimit: 10;
+        stroke-width: 2.5px;
+      }
+
+      .cls-2 {
+        fill: #333;
+      }
+    </style>
+  </defs>
+  <title>nearby-taxi</title>
+  <g>
+    <g>
+      <rect class="cls-1" x="1.25" y="14.79" width="32.1" height="10.7" rx="1" ry="1"/>
+      <path class="cls-1" d="M39,27.24H14.91l1.34-9.36a1.34,1.34,0,0,1,1.34-1.34H36.31a1.34,1.34,0,0,1,1.34,1.34Z" transform="translate(-9.65 -12.45)"/>
+    </g>
+    <g>
+      <circle class="cls-2" cx="6.6" cy="20.14" r="2.67"/>
+      <circle class="cls-2" cx="28" cy="20.14" r="2.67"/>
+      <rect class="cls-2" x="11.99" width="10.7" height="5.35" rx="1.43" ry="1.43"/>
+      <rect class="cls-2" x="3.92" y="24.15" width="5.35" height="8.02" rx="1" ry="1"/>
+      <rect class="cls-2" x="25.32" y="24.15" width="5.35" height="8.02" rx="1" ry="1"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,104 @@
+
+/* start light theme */
+.wallpaper-dog #blurfilter-container {
+	background-image:url(../images/wallpaper-dog.png);
+
+}
+
+.wallpaper-dog #blurfilter-container.blur {
+	-webkit-filter: blur(40px);
+}
+
+.wallpaper-dog .minus1-scrim {
+	background-color: rgba(255,255,255,0.1);
+}
+.wallpaper-dog .widget-card {
+	background-color: rgba(255,255,255,0.1);
+}
+
+.wallpaper-darktexture #blurfilter-container {
+
+	background-image:url(../images/wallpaper-darktexture.png);
+
+
+}
+
+.wallpaper-darktexture #blurfilter-container.blur {
+
+	-webkit-filter: blur(40px);
+}
+
+.wallpaper-flowers #blurfilter-container {
+	background-image:url(../images/wallpaper-flowers.png);
+	 -webkit-transform: scale(1.2);
+
+}
+
+.wallpaper-flowers #blurfilter-container.blur {
+	-webkit-filter: blur(40px);
+}
+
+.wallpaper-girl #blurfilter-container {
+	background-image:url(../images/wallpaper-girl.png);
+
+}
+
+.wallpaper-girl #blurfilter-container.blur {
+	-webkit-filter: blur(40px);
+	 -webkit-transform: scale(1.1);
+}
+
+.wallpaper-abstract #blurfilter-container {
+	background-image:url(../images/wallpaper-abstract.png);
+}
+
+.wallpaper-abstract #blurfilter-container.blur {
+ -webkit-transform: scale(1.2);
+	-webkit-filter: blur(40px);
+}
+.wallpaper-winterscene #blurfilter-container {
+	background-image:url(../images/wallpaper-winterscene.png);
+}
+
+.wallpaper-winterscene #blurfilter-container.blur {
+ -webkit-transform: scale(1.2);
+	-webkit-filter: blur(40px);
+}
+.wallpaper-winterscene .minus1-scrim {
+	background-color: rgba(0,0,0,0.35);
+}
+.wallpaper-winterscene .widget-card {
+	background-color: rgba(0,0,0,0.45);
+}
+
+.wallpaper-whitescene #blurfilter-container {
+	background-image:url(../images/wallpaper-whitescene.png);
+ -webkit-transform: scale(1.2);
+}
+
+.wallpaper-whitescene #blurfilter-container.blur {
+	
+	-webkit-filter: blur(40px);
+	-webkit-transform: scale(1.2);
+}
+.wallpaper-whitescene .minus1-scrim {
+	background-color: rgba(0,0,0,0.35);
+}
+.wallpaper-whitescene .widget-card {
+	background-color: rgba(0,0,0,0.45);
+}
+.wallpaper-solidyellow #blurfilter-container {
+	background-image:url(../images/wallpaper-solidyellow.png);
+}
+
+.wallpaper-solidyellow #blurfilter-container.blur {
+	-webkit-filter: blur(0);
+}
+
+.wallpaper-solidyellow .minus1-scrim {
+	background-color: rgba(0,0,0,0.35);
+}
+.wallpaper-solidyellow .widget-card {
+	background-color: rgba(0,0,0,0.45);
+}
+
