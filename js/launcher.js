@@ -73,35 +73,118 @@ $(function() {
         $('.quickcontrols-container').toggleClass('shrink-qc');
         $('#qc-more-button').toggleClass('open-more')
         if($('#qc-more-button').hasClass('open-more')) {
+            console.log("This section called")
             $( ".notification-center" ).attr('style', '');
-            $('.notification-center').addClass('open-more')
+            $('.notification-center').addClass('open-more');
+
+                    $('.qc-brightness-container').attr('style', '');
+                    $('.quickcontrols-icon-wrapper').attr('style', '');
+                    $('.qc-music-container').attr('style', '');
+                    $('.qc-callnote').attr('style', '');
         } else {
+              console.log("********* This section called")
             $( ".notification-center" ).css('height', '110px');
             $('.notification-center').removeClass('open-more')
+
+                    $('.qc-brightness-container').attr('style', '');
+                    $('.quickcontrols-icon-wrapper').attr('style', '');
+                    $('.qc-music-container').attr('style', '');
+                    $('.qc-callnote').attr('style', '');
+
         }
 
     })
+
+//var brightContainerHeight, controlIconsWrapperHeight, musicContainerHeight, callNoteHeight
     $('#notification-center').resizable({
         handles: 's',
         minHeight:20,
-        maxHeight:110,
+        animateDuration: "fast",
         start: function(event, ui){
              var currentBottom = ui.size.height;
+             if(currentBottom < 110) {
+                $('#notification-center').resizable("option","maxHeight",110);
+             }
+            if(currentBottom == 110) {
+                $('#notification-center').resizable("option","maxHeight",548);
+                $( ".notification-center" ).attr('style', '');
+                $('.notification-center').addClass('open-more')
+             }
         },
 
         resize: function(event, ui) {
                 ui.size.width = ui.originalSize.width;
                 var currentBottom = ui.size.height;
 
+                if(currentBottom >110) {
+
+                var brightContainerHeight = (ui.size.height-110)/(548-110)*70 + 'px';
+                var controlIconsWrapperHeight = (272-60)*(ui.size.height-110)/(548-110) + 60+ 'px';
+                var musicContainerHeight = (ui.size.height-110)/(548-110)*117 + 'px';
+                var callNoteHeight = (ui.size.height-110)/(548-110)*40 + 'px';
+
+                if (callNoteHeight == 40 ) {
+                    $('.qc-callnote').css('opacity',1)
+                    } else {
+                        $('.qc-callnote').css('opacity',0)
+                    }
+
+                    $('.qc-brightness-container').css('height', brightContainerHeight);
+                    $('.quickcontrols-icon-wrapper').css('height', controlIconsWrapperHeight);
+                    $('.qc-music-container').css('height', musicContainerHeight);
+                    $('.qc-callnote').css('height', callNoteHeight);
+                }
+
         },
         stop: function(event, ui) {
             var currentBottom = ui.size.height;
-            console.log('---currentBottom is: ', currentBottom);
-            if(currentBottom < 55) {
-                $('#notification-center').animate({'height': '28px'},50)
+
+            if(currentBottom <= 110) {
+                if(currentBottom < 55) {
+                    $('#notification-center').animate({'height': '28px'},50)
+                    $('.quickcontrols-container').addClass('shrink-qc');
+                    $('.qc-brightness-container').css('height', 0);
+                    $('.quickcontrols-icon-wrapper').css('height', '60px');
+                    $('.qc-music-container').css('height', 0);
+                    $('.qc-callnote').css('height', 0);
+                } else {
+                    $('#notification-center').animate({'height': '110px'},50)
+                    $('.quickcontrols-container').addClass('shrink-qc');
+                    $('.qc-brightness-container').css('height', 0);
+                    $('.quickcontrols-icon-wrapper').css('height', '60px');
+                    $('.qc-music-container').css('height', 0);
+                    $('.qc-callnote').css('height', 0);
+                }
+                
             } else {
-                $('#notification-center').animate({'height': '110px'},50)
+
+                if(currentBottom < 355) {
+                    $('#notification-center').animate({'height': '110px'},50)
+                    $('.quickcontrols-container').addClass('shrink-qc');
+                    $('#qc-more-button').removeClass('open-more')
+
+                    $('.qc-brightness-container').css('height', 0);
+                    $('.quickcontrols-icon-wrapper').css('height', '60px');
+                    $('.qc-music-container').css('height', 0);
+                    $('.qc-callnote').css('height', 0);
+                } else {
+                    $('.quickcontrols-container').removeClass('shrink-qc');
+                    $('#qc-more-button').addClass('open-more')
+                    $('#notification-center').animate({'height': '548px'},50)
+
+                    $('.qc-brightness-container').css('height', '70px');
+                    $('.quickcontrols-icon-wrapper').css('height', '272px');
+                    $('.qc-music-container').css('height', '117px');
+                    $('.qc-callnote').css('height', '40px');
+                               
+                    $('.qc-callnote').css('opacity',1);
+
+
+
+                }
+
             }
+
 
         }
 

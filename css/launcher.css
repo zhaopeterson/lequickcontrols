@@ -38,7 +38,6 @@ line-height:1
 	position: relative;
 	width:412px;
 	height:732px;
-
 	color:#fff;
 	-webkit-perspective: 1000
 }
@@ -111,7 +110,6 @@ right:7px;
 color:red;
 top:7px;
 font-size:12.5px;
-
 }
 
 .time-display.edit-mode {

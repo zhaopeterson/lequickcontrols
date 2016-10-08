@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="26px" height="30px" viewBox="0 0 26 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_data_default</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Control-Center" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="EUI6_ControlCenter_1.0.2" transform="translate(-138.000000, -173.000000)" fill="#A6A7AE">
+            <g id="Quick-Control-Maximum" transform="translate(-349.980000, -51.300000)">
+                <g id="Quick-Control-Maximized" transform="translate(349.980000, 188.100000)">
+                    <g id="Row-1" transform="translate(18.240000, 18.240000)">
+                        <g id="ic_data_default" transform="translate(109.440000, 9.120000)">
+                            <g id="Group" transform="translate(28.000000, 20.500000) rotate(180.000000) translate(-28.000000, -20.500000) translate(25.000000, 8.000000)">
+                                <rect id="Rectangle" x="4" y="7.10542736e-15" width="1" height="20"></rect>
+                                <path d="M0.500083474,17.1341192 C0.0218706999,17.4102155 -0.141977097,18.0217038 0.134119177,18.4999165 C0.410215451,18.9781293 1.02170375,19.1419771 1.49991653,18.8658808 C1.9781293,18.5897845 2.1419771,17.9782962 1.86588082,17.5000835 C1.58978455,17.0218707 0.978296247,16.8580229 0.500083474,17.1341192 L0.500083474,17.1341192 L0.500083474,17.1341192 Z" id="Combined-Shape"></path>
+                                <path d="M4.5,24 C4.22385763,24 4,24.2238576 4,24.5 C4,24.7761424 4.22385763,25 4.5,25 C4.77614237,25 5,24.7761424 5,24.5 C5,24.2238576 4.77614237,24 4.5,24 L4.5,24 L4.5,24 Z" id="Combined-Shape"></path>
+                                <polygon id="Combined-Shape" points="0.211181641 22.7939453 6.79394531 18.7906494 -0.790649414 18.7906494 -0.790649414 22.7939453"></polygon>
+                                <polygon id="Combined-Shape" points="4.05171813 24.6682327 4.90844727 23.2693071 0.92582093 17 0.0345458984 17.5569801"></polygon>
+                            </g>
+                            <g id="Group" transform="translate(12.000000, 20.500000) scale(-1, -1) rotate(180.000000) translate(-12.000000, -20.500000) translate(9.000000, 8.000000)">
+                                <rect id="Rectangle" x="4" y="0" width="1" height="20"></rect>
+                                <path d="M0.500083474,17.1341192 C0.0218706999,17.4102155 -0.141977097,18.0217038 0.134119177,18.4999165 C0.410215451,18.9781293 1.02170375,19.1419771 1.49991653,18.8658808 C1.9781293,18.5897845 2.1419771,17.9782962 1.86588082,17.5000835 C1.58978455,17.0218707 0.978296247,16.8580229 0.500083474,17.1341192 L0.500083474,17.1341192 L0.500083474,17.1341192 Z" id="Combined-Shape"></path>
+                                <path d="M4.5,24 C4.22385763,24 4,24.2238576 4,24.5 C4,24.7761424 4.22385763,25 4.5,25 C4.77614237,25 5,24.7761424 5,24.5 C5,24.2238576 4.77614237,24 4.5,24 L4.5,24 L4.5,24 Z" id="Combined-Shape"></path>
+                                <polygon id="Combined-Shape" points="0.211181641 22.7939453 6.79394531 18.7906494 -0.790649414 18.7906494 -0.790649414 22.7939453"></polygon>
+                                <polygon id="Combined-Shape" points="4.05171813 24.6682327 4.90844727 23.2693071 0.92582093 17 0.0345458984 17.5569801"></polygon>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
