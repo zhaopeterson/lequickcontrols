@@ -66,6 +66,55 @@ $(function() {
     
     setWidgetScroll();
 
+// ============ Notification Quick Controls =======================
+//qc-more-button
+
+    $('#qc-more-button').on('tap', function(){
+        $('.quickcontrols-container').toggleClass('shrink-qc');
+        $('#qc-more-button').toggleClass('open-more')
+        if($('#qc-more-button').hasClass('open-more')) {
+            $( ".notification-center" ).attr('style', '');
+            $('.notification-center').addClass('open-more')
+        } else {
+            $( ".notification-center" ).css('height', '110px');
+            $('.notification-center').removeClass('open-more')
+        }
+
+    })
+    $('#notification-center').resizable({
+        handles: 's',
+        minHeight:20,
+        maxHeight:110,
+        start: function(event, ui){
+             var currentBottom = ui.size.height;
+        },
+
+        resize: function(event, ui) {
+                ui.size.width = ui.originalSize.width;
+                var currentBottom = ui.size.height;
+
+        },
+        stop: function(event, ui) {
+            var currentBottom = ui.size.height;
+            console.log('---currentBottom is: ', currentBottom);
+            if(currentBottom < 55) {
+                $('#notification-center').animate({'height': '28px'},50)
+            } else {
+                $('#notification-center').animate({'height': '110px'},50)
+            }
+
+        }
+
+    })
+
+$('#notification-center').bind('resizestop', function(event, ui) {
+    // determine resize deltas
+
+    var delta_y = ui.size.height - ui.originalSize.height;
+    console.log("in the resize stop function ", delta_y)
+})
+
+
     // OPEN app drawer
 
     $('#appdrawer-button').on("tap", function(){
@@ -76,17 +125,6 @@ $(function() {
             $( "#appdrawer" ).addClass('open-appdrawer');
         }
     });
-
-
-    $('#notification-center').resizable({
-        handles: 's',
-        minHeight:20,
-        maxHeight: 548,
-        resize: function(event, ui) {
-                ui.size.width = ui.originalSize.width;
-            }
-
-    })
 
 var appdrawerAlpha;
         $( "#appdrawer" ).resizable({

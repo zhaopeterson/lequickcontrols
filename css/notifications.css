@@ -1,0 +1,203 @@
+.notification-center {
+	position: absolute;
+	top: 0;
+	left:0;
+	width:412px;
+	height: 28px;
+	background-image: url(../images/bg-homeviewblur.jpg);
+	background-position: center top;
+	z-index:5000;
+	transition: all 0.5s;
+}
+
+.notification-center.open-more {
+	height: 548px;
+	transition: all 0.5s;
+}
+
+.ui-resizable-s {
+    cursor: s-resize;
+    height: 28px;
+    width: 100%;
+    bottom: -5px;
+    background: purple;
+    opacity:0.2;
+    left: 0;
+}
+
+.quickcontrols-container {
+	width: 412px;
+	height: auto;
+	background-color:rgba(56,56,56,.7);
+	position: absolute;
+	bottom: 23px;
+	transition: all 0.5s
+}
+.quickcontrols-icon-wrapper {
+	width:412px;
+	min-height: 50px;
+	height:272px;
+	border-top: solid 1px #333232;
+	border-bottom: solid 1px #333232;
+	padding: 0 20px;
+	transition: all 0.5s
+}
+.shrink-qc .quickcontrols-icon-wrapper {
+	height:60px;
+	border-top: solid 1px transparent;
+	border-bottom: solid 1px transparent;
+	overflow: hidden;
+	transition: all .5s
+}
+
+.qc-callnote {
+	font-size: 13px;
+	padding:0 20px;
+	color:#A6A7AE;
+	overflow:hidden;
+	height: 40px;
+	position: relative;
+	top:20px;
+	transition: all 0.5s
+}
+.qc-timedate {
+	font-family: "SansPro-Regular";
+	font-size:16px;
+	height:26px;
+	line-height: 1.4;
+	padding: 0 20px 0;
+	transition: all 0.5s
+}
+
+.shrink-qc .qc-timedate {
+	font-family: "SansPro-Regular";
+	font-size:14px;
+	line-height: 1.4;
+	padding: 12px 20px 0;
+	transition: all 0.5s
+}
+
+.shrink-qc .qc-callnote {
+	height:0;
+	transition: all 0.5s
+}
+.qc-icon-wrapper {
+	width: 64px;
+	margin: 0 14px;
+	height: 115px;
+	float: left;
+	text-align: center;
+}
+
+.selected.qc-icon-wrapper img{
+	border: solid 1.5px rgba(255,255,255,.7);
+	border-radius: 2px;
+}
+
+.shrink-qc .qc-icon-wrapper {
+	width:48px;
+	height:54px;
+	margin: 0 8px ;
+	transition: all 0.5s
+
+}
+.shrink-qc .qc-icon-wrapper:first-child {
+	margin: 0 8px 0 0;
+	transition: all 0.5s
+}
+
+.qc-icon-wrapper img {
+	display:block;
+	margin: 20px auto 12px;
+	padding: 9px;
+	transition: all 0.5s
+}
+.shrink-qc .qc-icon-wrapper img {
+	display:block;
+	margin: 10px auto;
+	padding: 4px;
+	transform:scale(0.65);
+	transform-origin: top left;
+	transition: all 0.5s
+}
+
+.shrink-qc #qc-settings-button {
+	opacity: 0;
+	transition: all 0.5s
+}
+.qc-icon-wrapper span {
+	color:#A6A7AE;
+	font-size: 13px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.shrink-qc .qc-icon-wrapper span {
+display: none;
+}
+
+
+.cf:before,
+.cf:after {
+  content: "";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+.qc-buttons-container {
+	position: absolute;
+	right: 8px;
+	top: 40px;
+	width: 72px;
+	height: 40px;
+	text-align: right;
+}
+
+.qc-button {
+	width:36px;
+	height:36px;
+	display: block;
+	float: left;
+}
+
+.open-more #qc-more-button {
+	transform: rotate(180deg);
+}
+.qc-brightness-container {
+	width: 412px;
+	height:70px;
+	padding: 30px 20px 14px;
+	overflow:hidden;
+	transition: all 0.5s
+}
+
+.shrink-qc .qc-brightness-container {
+	padding:0;
+	height:0;
+	transition: all 0.5s
+}
+.qc-brightness-container img {
+	display: block;
+/*	width: 380px;*/
+}
+.qc-music-container {
+	padding:  20px;
+	height:117px;
+	overflow: hidden;
+	transition: all 0.5s
+}
+
+.shrink-qc .qc-music-container {
+	padding:  0;
+	height:0;
+	transition: all 0.5s
+}
+.edit-para {
+	width: 372px;
+	padding: 0 20px;
+	height: 40px;
+	line-height:40px;
+	float: left;
+	text-align: right;
+}
