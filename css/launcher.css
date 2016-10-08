@@ -48,8 +48,8 @@ line-height:1
 position:absolute;
 top:0;
 left:0;
-	width:412px;
-	height:732px;
+width:412px;
+height:732px;
 background-image:url(../images-eui6/bg-prettygirl.jpg);
 background-size:412px 732px;
 background-position:0 0;
@@ -62,7 +62,7 @@ left:0;
 width:412px;
 height:732px;
 opacity:0;
-background-image:url(../images-eui6/bg-prettygirl-blur.jpg);
+background-image:url(../images-eui6/bg-prettygirl-blur.png);
 background-size:412px 732px;
 background-position:0 0;
 overflow:hidden;
@@ -86,7 +86,7 @@ height:24px;
 padding:0;
 font-size:14px;
 position:relative;
-z-index:1005;
+z-index:-1;
 }
 .statusbar-wrapper {
 position:absolute;
@@ -177,7 +177,7 @@ transform-origin:50% 20%
 position:absolute;
 z-index:1;
 -webkit-tap-highlight-color:rgba(0,0,0,0);
-width:1236px;
+width:1648px;
 height:600px;
 -webkit-transform:translateZ(0);
 transform:translateZ(0);
@@ -190,7 +190,8 @@ text-size-adjust:none
 
 .launcher-screen-row {
 width:1236px;
-height:610px;
+/*height:610px;*/
+height:732px;
 position:relative;
 white-space:nowrap;
 box-sizing:border-box
@@ -216,7 +217,7 @@ transform-origin:50% 50%
 
 .launcher-screen {
 width:412px;
-height:620px;
+height:732px;
 display:inline-block;
 position:relative;
 margin:0;
@@ -335,7 +336,7 @@ opacity:0;
 }
 .home-icons-wrapper.slide-down {
 transform: translate3d(0,120px,0);
-	transition: all 0.25s;
+transition: all 0.25s;
 }
 
 .home-icons-wrapper.on-minus1 {
@@ -349,12 +350,12 @@ transition:all .15s ease-out
 }
 
 .app-home-icon {
-height:76px;
-width:82px;
+height:54px;
+width:54px;
+margin: 16px 14px 0;
 float:left;
 text-align:center;
 position:relative;
-
 }
 
 .app-home-icon img {

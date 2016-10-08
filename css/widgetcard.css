@@ -306,7 +306,7 @@ background-position:15px 15px
 .widget-title {
 position: absolute;
 top: 0;
-left:8px;
+left:4px;
 width: 300px;
 height: 50px;
 background-repeat:no-repeat;
@@ -338,11 +338,22 @@ width:392px;
 min-height:80px;
 white-space:normal;
 position:relative;
-background:rgba(56,56,56,0.6);
+background:rgba(56,56,56,0.7);
 padding:10px;
 border-radius:5px;
 }
 
+/*.widget-content-container::before {
+	content: '';
+	width: 392px;
+	position:absolute;
+	top:0;
+	left:0;
+	height: inherit;
+	background:rgba(56,56,56,0.6);
+
+}
+*/
 
 #widget-content-recentapps, #widget-content-places, #widget-content-games {
 	height:120px;
@@ -521,7 +532,7 @@ background-image:url(../images-eui6/ic_lesports.png)
 background-image:url(../images-eui6/ic_wallpapers.png)
 }
 #widget-card-header-calendar .widget-title {
-background-image:url(../images/icon-lecalendar-bg.png)
+background-image:url(../images-eui6/ic_calendar_30.png)
 }
 #widget-card-header-notes .widget-title {
 background-image:url(../images-eui6/ic_notes.png)
@@ -626,8 +637,8 @@ font-size: 15px;
 }
 .game-icon-wrapper span {
 	display: block;
-	width: 70px;
-	margin: 0 auto;
+	width: 80px;
+	margin: 10px auto 0;
 	line-height: 1.2;
 	font-size: 14px;
 }

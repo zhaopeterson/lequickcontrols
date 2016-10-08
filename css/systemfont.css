@@ -1,0 +1,281 @@
+@font-face {
+    font-family: 'AndroidClock_Highlight';
+    src: url('../system-fonts/AndroidClock_Highlight.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'AndroidClock_Solid';
+    src: url('../system-fonts/AndroidClock_Solid.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'AndroidClock';
+    src: url('../system-fonts/AndroidClock.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+/* =============== Roboto ================= */
+@font-face {
+    font-family: 'Roboto-Black';
+    src: url('../system-fonts/Roboto-Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto-BlackItalic';
+    src: url('../system-fonts/Roboto-BlackItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto-Bold';
+    src: url('../system-fonts/Roboto-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto-BoldItalic';
+    src: url('../system-fonts/Roboto-BoldItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url('../system-fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto-Italic';
+    src: url('../system-fonts/Roboto-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto-Light';
+    src: url('../system-fonts/Roboto-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto-Thin';
+    src: url('../system-fonts/Roboto-Thin.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto-ThinItalic';
+    src: url('../system-fonts/Roboto-ThinItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto-Medium';
+    src: url('../system-fonts/Roboto-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto-MediumItalic';
+    src: url('../system-fonts/Roboto-MediumItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'RobotoCondensed-Bold';
+    src: url('../system-fonts/Roboto-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'RobotoCondensed-BoldItalic';
+    src: url('../system-fonts/Roboto-BoldItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'RobotoCondensed-Italic';
+    src: url('../system-fonts/Roboto-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'RobotoCondensed-Light';
+    src: url('../system-fonts/Roboto-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'RobotoCondensed-LightItalic';
+    src: url('../system-fonts/Roboto-LightItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'RobotoCondensed-Regular';
+    src: url('../system-fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'EUIClockBeta12-Bold';
+    src: url('../EUIClock_Beta12_OTF/EUIClockBeta12-Bold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'EUIClockBeta12-Regular';
+    src: url('../EUIClock_Beta12_OTF/EUIClockBeta12-REgular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'EUIClockBeta12-Thin';
+    src: url('../EUIClock_Beta12_OTF/EUIClockBeta12-Thin.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+ /* =========== Source SansPro ============= */
+@font-face {
+    font-family: 'SourceSansPro-Black';
+    src: url('../source-sans-pro/SourceSansPro-Black.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SourceSansPro-BlackIt';
+    src: url('../source-sans-pro/SourceSansPro-BlackIt.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SourceSansPro-Bold';
+    src: url('../source-sans-pro/SourceSansPro-Bold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SourceSansPro-BoldIt';
+    src: url('../source-sans-pro/SourceSansPro-BoldIt.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SourceSansPro-BoldIt';
+    src: url('../source-sans-pro/SourceSansPro-BoldIt.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SourceSansPro-ExtraLight';
+    src: url('../source-sans-pro/SourceSansPro-ExtraLight.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SourceSansPro-ExtraLightIt';
+    src: url('../source-sans-pro/SourceSansPro-ExtraLightIt.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SourceSansPro-It';
+    src: url('../source-sans-pro/SourceSansPro-It.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SourceSansPro-Light';
+    src: url('../source-sans-pro/SourceSansPro-Light.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SourceSansPro-Regular';
+    src: url('../source-sans-pro/SourceSansPro-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SourceSansPro-Light';
+    src: url('../source-sans-pro/SourceSansPro-Light.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SourceSansPro-LightIt';
+    src: url('../source-sans-pro/SourceSansPro-LightIt.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SourceSansPro-Regular';
+    src: url('../source-sans-pro/SourceSansPro-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SourceSansPro-Semibold';
+    src: url('../source-sans-pro/SourceSansPro-Semibold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SourceSansPro-SemiboldIt';
+    src: url('../source-sans-pro/SourceSansPro-SemiboldIt.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* =========== helvetic ==============*/
+
+@font-face {
+    font-family: 'HelveticalT-Light';
+    src: url('../system-fonts/HelveticalT-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'HelveticalT-Light';
+    src: url('../system-fonts/HelveticalT-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'HelveticalT-Medium';
+    src: url('../system-fonts/HelveticalT-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'HelveticalT-Roman';
+    src: url('../system-fonts/HelveticalT-Roman.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'HelveticalT-Thin';
+    src: url('../system-fonts/HelveticalT-Thin.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'HelveticalT-UltraLight';
+    src: url('../system-fonts/HelveticalT-UltraLight.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HelveticalT-UltraLight';
+    src: url('../system-fonts/HelveticalT-UltraLight.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+

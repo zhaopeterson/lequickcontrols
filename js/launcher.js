@@ -13,6 +13,7 @@ $(function() {
     $('#reload-button').on('tap', function(){
         document.location.reload(true);
     })
+    //setFontScroll()
 
 //==================== Cordova Device ready
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -24,6 +25,9 @@ $(function() {
     document.addEventListener("backbutton", onBackKeyDown, false);
     function onBackKeyDown() {
         $('.quickaccess-container').removeClass('open-quickaccess');
+        if ($( "#appdrawer" ).hasClass('open-appdrawer')) {
+            $( "#appdrawer" ).removeClass('open-appdrawer')
+        }
     }
 
   // elements
@@ -59,27 +63,111 @@ $(function() {
    $(window).bind('fullscreen', function(ev, is_fullscreen){
 
     });
-
-    // HIDE HOME BUTTONS 
-
-    // var wl= getWidgetsLength();
-    // $('#widget-scroller').css('height', wl+'px');
     
     setWidgetScroll();
 
+    // OPEN app drawer
+
+    $('#appdrawer-button').on("tap", function(){
+        if(!$( "#appdrawer" ).hasClass('open-appdrawer')) {
+            $( "#appdrawer" ).attr('style', '');
+            $(".appdrawer-container").attr('style', '');
+            $('.home-icons').attr('style', '');
+            $( "#appdrawer" ).addClass('open-appdrawer');
+        }
+    });
+
+
+    $('#notification-center').resizable({
+        handles: 's',
+        minHeight:20,
+        maxHeight: 548,
+        resize: function(event, ui) {
+                ui.size.width = ui.originalSize.width;
+            }
+
+    })
+
+var appdrawerAlpha;
+        $( "#appdrawer" ).resizable({
+            handles: 'n',
+            minHeight:91,
+            maxHeight: 732,
+            start: function(event,ui){
+               $('#appdrawer').css('background-position', 'center bottom;');
+            },
+            resize: function(event, ui) {
+                ui.size.width = ui.originalSize.width;
+                $('#appdrawer').addClass('add-blurbg');
+
+                var appdrawerTop = ui.position.top;
+                var appdrawerOpacity = 1 - appdrawerTop /641;
+                var dockOpacity = appdrawerTop /641-0.5;
+                var blurValue = (1 - appdrawerTop /641) * 20 +'px';
+                var blurContainerTop =  732-ui.position.top -10 + 'px';
+
+                var drawerBgOpacity = 1;
+                
+
+
+                $(".appdrawer-container").css("opacity", appdrawerOpacity)
+                $('.home-icons').css("opacity", dockOpacity);
+                $('.appblur-container ').css("height", blurContainerTop)
+                appdrawerAlpha = appdrawerOpacity;
+
+            },
+            stop: function(e,ui) {
+              var currentTop = ui.position.top;
+
+                if($( "#appdrawer" ).hasClass('open-appdrawer')) {
+     
+                    $( "#appdrawer" ).removeClass('open-appdrawer')
+                }
+
+              if(currentTop < 366) {
+
+                $('#appdrawer::before').css('opacity', 1);
+                $('#appdrawer').animate({'height': '732px', 'top': '0'},250);
+
+                $(".appdrawer-container").css('opacity', appdrawerAlpha).animate({"opacity": 1}, 250, function(){
+                    console.log("animation completed: ", $(".appdrawer-container").css('opacity'))
+                })
+                $('.home-icons').animate({"opacity": 0}, 250) ;
+    
+              
+              } else {
+                $('#appdrawer').animate({'height': '91px', 'top': '641px'},250)
+                $(".appdrawer-container").css('opacity', appdrawerAlpha).animate({"opacity": 0}, 250)
+                $('.home-icons').css("opacity", 1) ;
+                $('.appdrawer-bg').css('opacity', 0)
+                $('#appdrawer').removeClass('add-blurbg')
+
+              }
+            }
+          });
+
+
+
+    
 
     widgetScroll.on('scroll', updatePosition);
     widgetScroll.on('scrollEnd', showDock);
     function updatePosition(){
-        if (this.y < 0 && pageScroll.x ==0) {
-            $('.home-icons-wrapper').addClass('slide-down')
+        if (this.y < 0 && pageScroll.x <= 0) {
+           
+            $('#appdrawer').addClass('slide-down')
         } else {
-            $('.home-icons-wrapper').removeClass('slide-down')
+            $('#appdrawer').removeClass('slide-down')
         }
     }
     function showDock(){
-        $('.home-icons-wrapper').removeClass('slide-down')
+        $('#appdrawer').removeClass('slide-down')
     }
+
+
+    // })
+
+
 
  // ===================== EUI APPS TAPPED TO ADD TO THE RECENT
     
@@ -118,7 +206,7 @@ $(function() {
 
         $( "#cardscrim-opacity" ).slider({
             range: "min",
-            value: 60,
+            value: 70,
             min: 1,
             max: 100,
             slide: function( event, ui ) {
@@ -1210,7 +1298,7 @@ function showScrollInfo(){
    // console.log(pageScroll.options)
 }
 
-var blurBgOpacity =0.5
+var blurBgOpacity = 0.75
 function setPageScroll() {
     setTimeout(function () {
     pageScroll = new IScroll('#page-wrapper', {probeType: 3, startX: -412, scrollX: true, scrollY: false, momentum: false, snap: true, snapThreshold: 1, snapSpeed: 400, mouseWheel: true, tap: true});
@@ -1235,7 +1323,7 @@ function setPageScroll() {
             $('#widgets-content-wrapper, .widget-header').css('opacity', minusOpacity);
 
             $('.home-icons-scrim').css({
-                    'opacity': homeDockAlpha
+                'opacity': homeDockAlpha
             })
             } else if (this.x<= -412) {
 
@@ -1267,7 +1355,12 @@ function setPageScroll() {
                     $('#indicator-home li').removeClass('active');
                     $('#p'+ index).addClass('active');
                 }
-                $('.home-icons-scrim').removeClass('scroll-down')
+                $('.home-icons-scrim').removeClass('scroll-down');
+                console.log("destroy the app drawer resizable")
+                //$("#appdrawer").resizable("destroy");
+                $( "#appdrawer" ).resizable({})
+                $( "#appdrawer" ).resizable("destroy")
+
             } else {
                 //not on minus1 screens
                 $('#indicator-home').css('display', 'block');
@@ -1277,7 +1370,61 @@ function setPageScroll() {
                 $('#p'+ index).addClass('active');
                 $('.home-icons-scrim').css({
                         'opacity':0
+                });
+
+            // APP DRAWER    
+            $( "#appdrawer" ).resizable({
+            handles: 'n',
+            minHeight:91,
+            resize: function(event, ui) {
+                 ui.size.width = ui.originalSize.width;
+                $('#appdrawer').addClass('add-blurbg');
+
+                var appdrawerTop = ui.position.top;
+                var appdrawerOpacity = 1 - appdrawerTop /641;
+                var dockOpacity = appdrawerTop /641-0.5;
+                var blurValue = (1 - appdrawerTop /641) * 20 +'px';
+                var blurContainerTop =  732-ui.position.top -10 + 'px';
+
+                var drawerBgOpacity = 1;
+                
+
+
+                $(".appdrawer-container").css("opacity", appdrawerOpacity)
+                $('.home-icons').css("opacity", dockOpacity);
+                $('.appblur-container ').css("height", blurContainerTop)
+                appdrawerAlpha = appdrawerOpacity;
+
+            },
+            stop: function(e,ui) {
+             var currentTop = ui.position.top;
+
+                if($( "#appdrawer" ).hasClass('open-appdrawer')) {
+                    $( "#appdrawer" ).removeClass('open-appdrawer')
+                }
+
+              if(currentTop < 366) {
+
+                $('#appdrawer::before').css('opacity', 1);
+                $('#appdrawer').animate({'height': '732px', 'top': '0'},250);
+
+                $(".appdrawer-container").css('opacity', appdrawerAlpha).animate({"opacity": 1}, 250, function(){
+                    console.log("animation completed: ", $(".appdrawer-container").css('opacity'))
                 })
+                $('.home-icons').animate({"opacity": 0}, 250) ;
+    
+              
+              } else {
+                $('#appdrawer').animate({'height': '91px', 'top': '641px'},250)
+                $(".appdrawer-container").css('opacity', appdrawerAlpha).animate({"opacity": 0}, 250)
+                $('.home-icons').css("opacity", 1) ;
+                $('.appdrawer-bg').css('opacity', 0)
+                //$('#appdrawer').css('background-size', '412px 0');
+                $('#appdrawer').removeClass('add-blurbg')
+
+              }
+            }
+          });
             }
         }
     })//end of scroll end
@@ -1296,6 +1443,11 @@ function setWidgetSettingsScroll() {
  
     widgetSettingsScroll = new IScroll('#widget-settings-wrapper', { scrollX: false, scrollY: true, mouseWheel: true, bindToWrapper: true });
 }
+
+// function setFontScroll() {
+ 
+//     fontScroll = new IScroll('#font-wrapper', { scrollX: true, scrollY: true, mouseWheel: true, bindToWrapper: true });
+// }
 
 function setToprowScroll() {
     toprrowScroll = new IScroll('#toprow-wrapper', { scrollX: true, scrollY: false, mouseWheel: true, bindToWrapper: true });
@@ -1370,7 +1522,6 @@ function getDraggablePosition(obj) {
 function getScreenInfo(obj) {
 
   var parentScreen=$(obj).closest('.launcher-screen');
- // console.log('parentScreen is: ', parentScreen)
   var nextScreen = $(parentScreen).next('.launcher-screen');
   var prevScreen = $(parentScreen).prev('.launcher-screen');
   var screens;

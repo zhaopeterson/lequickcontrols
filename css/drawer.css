@@ -671,14 +671,7 @@ background: rgba(0,0,0,0.2)
 	left:-3px;
 	width: 392px;
 	z-index:-1;
-/*	height: 260px;*/
-
-/*	border: solid 2px orange;*/
 	overflow: hidden;
-
-/*	 clip: rect(0px,400px,260px,0);*/
-/*	-webkit-filter: blur(15px);*/
-/*	background: rgba(243,183,34, 0.3);*/
 }
 
 .favapps-dropzone {
@@ -690,7 +683,7 @@ background: rgba(0,0,0,0.2)
 
 }
 .favapps-dropzone.nearby {
-/*	background: rgba(211, 3, 57, 0.5);*/
+
 }
 .favapps-dropzone2 {
 	position: absolute;
@@ -702,4 +695,204 @@ background: rgba(0,0,0,0.2)
 
 .favapps-dropzone2.nearby {
 	background: rgba(211, 3, 57, 0.5);
+}
+
+.ui-resizable-n {
+	position:absolute;
+    cursor: n-resize;
+    height: 91px;
+    width: 412px;
+    top: -5px;
+    left: 0;
+    background-image: url(../images/ic-pulldrawer.png);
+    background-repeat:no-repeat;
+    background-position:center 10px;
+}
+
+#appdrawer {
+	position:absolute;
+	width: 412px;
+	top:641px;
+	height: 91px;
+	z-index:5000;
+	transition: all 0.25s;
+	background-image: url(../images/bg-homeviewblur.jpg);
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	background-size:412px 0;
+	transition: all 0.2s;
+}
+
+#appdrawer.add-blurbg {
+	background-size:412px 732px;
+	transition: all 0.2s;
+}
+
+#appdrawer::before {
+	content:'';
+	position:absolute;
+	width: 412px;
+	top:0;
+	left:0;
+	height: inherit;
+	z-index:-1;
+}
+
+#appdrawer.open-appdrawer {
+	height: 732px;
+	top:0;
+	background-size: 412px 732px;
+	transition: all .5s;
+}
+
+#appdrawer.slide-down {
+transform: translate3d(0,120px,0);
+transition: all 0.25s;
+}
+
+.home-icons {
+	position: absolute;
+	top:0;
+	height:0;
+	z-index: 506;
+}
+.open-appdrawer .home-icons {
+	opacity: 0;
+	transition: all 0.1s;
+}
+.appdrawer-container {
+	width: 412px;
+	height:732px;
+	opacity:0;
+	transition: all 0.5s;
+}
+
+.open-appdrawer .appdrawer-container {
+	opacity: 1;
+	transition: all 0.5s;
+}
+.appdrawer-global-wrapper {
+	width: 412px;
+	height:732px;
+	position:absolute;
+}
+
+.appdrawer-bg {
+	width: 412px;
+	height:732px;
+	position:absolute;
+	z-index:-1;
+	opacity:0;
+}
+
+.appblur-container {
+	width: 412px;
+	height: 0;
+	position: absolute;
+	bottom:0;
+	left:0;
+	z-index:400;
+}
+
+.notification-center {
+	position: absolute;
+	top: 0;
+	left:0;
+	width:412px;
+	height: 28px;
+	background-image: url(../images/bg-homeviewblur.jpg);
+	background-position: center top;
+
+	z-index:1000;
+}
+
+.ui-resizable-s {
+    cursor: s-resize;
+    height: 28px;
+    width: 100%;
+    bottom: -5px;
+    background: purple;
+    left: 0;
+}
+
+.quickcontrols-container {
+	width: 412px;
+	height: 520px;
+		background-color:rgba(56,56,56,.7);
+	position: absolute;
+	bottom: 28px;
+
+}
+.quickcontrols-icon-wrapper {
+	width:412px;
+	min-height: 130px;
+	border-top: solid 1px #333232;
+	border-bottom: solid 1px #333232;
+	padding: 0 20px;
+
+}
+.qc-callnote{
+	font-size: 13px;
+	padding:20px;
+	color:#A6A7AE;
+}
+.qc-icon-wrapper {
+	width: 92px;
+	height: 115px;
+	float: left;
+	text-align: center;
+
+}
+
+.qc-timedate {
+	font-family: "SansPro-Regular";
+	font-size:14px;
+	line-height: 1.4;
+	padding: 0 20px;
+}
+
+.qc-icon-wrapper img {
+	display:block;
+	margin: 20px auto;
+}
+.qc-icon-wrapper span {
+	color:#A6A7AE;
+	font-size: 13px;
+	white-space: nowrap;
+}
+.cf:before,
+.cf:after {
+  content: "";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+.qc-buttons-container {
+	position: absolute;
+	right: 0;
+	top: 40px;
+	width: 80px;
+	height: 40px;
+
+}
+.qc-brightness-container {
+	width: 412px;
+	height:56px;
+	padding: 16px 20px;
+}
+.qc-brightness-container img {
+	display: block;
+}
+.qc-music-container {
+	padding:  20px;
+}
+.edit-para {
+	width: 372px;
+	padding: 0 20px;
+	height: 40px;
+	line-height:40px;
+	float: left;
+	text-align: right;
 }

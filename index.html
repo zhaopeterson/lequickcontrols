@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="js/lib/jquery-ui-1.11.4/jquery-ui.min.css" />
         <link rel="stylesheet" href="css/sanspro.css" />
         <link rel="stylesheet" href="css/roboto.css" />
+        <link rel="stylesheet" href="css/systemfont.css" />
         <link rel="stylesheet" href="css/launcher.css" />
         <link rel="stylesheet" href="css/drawer.css" />
         <link rel="stylesheet" href="css/widgetcard.css" />
@@ -65,14 +66,14 @@
                         </div>
                         <div class="cards-style-container">
                             <p>Backgrounds Images</p>
-                            <img class='bgstyle-thumb' data-bgimage = 'url(images-eui6/bg-bluepattern.jpg)'  data-blurimage = 'url(images-eui6/bg-bluepattern-blur.jpg)' src="images-eui6/bg-bluepattern.jpg">
-                            <img class='bgstyle-thumb' data-bgimage = 'url(images-eui6/bg-cherryblossom.jpg)' data-blurimage = 'url(images-eui6/bg-cherryblossom-blur.jpg)' src="images-eui6/bg-cherryblossom.jpg">
-                            <img class='bgstyle-thumb' data-bgimage = 'url(images-eui6/bg-prettygirl.jpg)' data-blurimage = 'url(images-eui6/bg-prettygirl-blur.jpg)' src="images-eui6/bg-prettygirl.jpg">
-                            <img class='bgstyle-thumb' data-bgimage = 'url(images-eui6/bg-shark.jpg)' data-blurimage = 'url(images-eui6/bg-shark-blur.jpg)' src="images-eui6/bg-shark.jpg">
-                            <img class='bgstyle-thumb' data-bgimage = 'url(images-eui6/bg-snow.jpg)' data-blurimage = 'url(images-eui6/bg-snow-blur.jpg)' src="images-eui6/bg-snow.jpg">
-                            <img class='bgstyle-thumb' data-bgimage = 'url(images-eui6/bg-starrynight.jpg)' data-blurimage = 'url(images-eui6/bg-starrynight-blur.jpg)'  src="images-eui6/bg-starrynight.jpg">
-                            <img class='bgstyle-thumb' data-bgimage = 'url(images-eui6/bg-whitecrack.jpg)' data-blurimage = 'url(images-eui6/bg-whitecrack-blur.jpg)' src="images-eui6/bg-whitecrack.jpg">
-                            <img class='bgstyle-thumb' data-bgimage = 'url(images-eui6/bg-firework.jpg)' data-blurimage = 'url(images-eui6/bg-firework-blur.jpg)' src="images-eui6/bg-firework.jpg">
+                            <img class='bgstyle-thumb' data-bgimage = 'url(images-eui6/bg-bluepattern.jpg)'  data-blurimage = 'url(images-eui6/bg-bluepattern-blur.png)' src="images-eui6/bg-bluepattern.jpg">
+                            <img class='bgstyle-thumb' data-bgimage = 'url(images-eui6/bg-cherryblossom.jpg)' data-blurimage = 'url(images-eui6/bg-cherryblossom-blur.png)' src="images-eui6/bg-cherryblossom.jpg">
+                            <img class='bgstyle-thumb' data-bgimage = 'url(images-eui6/bg-prettygirl.jpg)' data-blurimage = 'url(images-eui6/bg-prettygirl-blur.png)' src="images-eui6/bg-prettygirl.jpg">
+                            <img class='bgstyle-thumb' data-bgimage = 'url(images-eui6/bg-shark.jpg)' data-blurimage = 'url(images-eui6/bg-shark-blur.png)' src="images-eui6/bg-shark.jpg">
+                            <img class='bgstyle-thumb' data-bgimage = 'url(images-eui6/bg-snow.jpg)' data-blurimage = 'url(images-eui6/bg-snow-blur.png)' src="images-eui6/bg-snow.jpg">
+                            <img class='bgstyle-thumb' data-bgimage = 'url(images-eui6/bg-starrynight.jpg)' data-blurimage = 'url(images-eui6/bg-starrynight-blur.png)'  src="images-eui6/bg-starrynight.jpg">
+                            <img class='bgstyle-thumb' data-bgimage = 'url(images-eui6/bg-whitecrack.jpg)' data-blurimage = 'url(images-eui6/bg-whitecrack-blur.png)' src="images-eui6/bg-whitecrack.jpg">
+                            <img class='bgstyle-thumb' data-bgimage = 'url(images-eui6/bg-firework.jpg)' data-blurimage = 'url(images-eui6/bg-firework-blur.png)' src="images-eui6/bg-firework.jpg">
                         </div>
                     </div>
                 </div>
@@ -195,9 +196,76 @@
                         <li id="p3"></li>
                     </ul>
                 </div>
-                <div class="home-icons-wrapper">
+                <div class="notification-center" id="notification-center">
+                    <!-- <img src="images/image-quickcontrolmenu.png" style="position: absolute; bottom:0"> -->
+                    <div class="quickcontrols-container">
+                        <p class="qc-callnote">Emergency calls only</p>
+                        <p class="qc-timedate">10:45 AM  •  Thu, Jan 20</p>
+                        <div class="qc-buttons-container">
+                            <img src="images/ic_qc_settings.png">
+                            <img src="images/ic_qc_maximize.png">
+                            
+                        </div>
+                        <div class="qc-brightness-container">
+                            <img src="images/ic_qc_brightness.png">
+                        </div>
+                        <div class="quickcontrols-icon-wrapper cf">
+
+                            <div class="qc-icon-wrapper">
+                                <img src="images/ic_wifi_default.png">
+                                <span>Wi-Fi</span>
+                            </div>
+                            <div class="qc-icon-wrapper">
+                                <img src="images/ic_data_default.png">
+                                <span>Data</span>
+                            </div>
+                            <div class="qc-icon-wrapper">
+                                <img src="images/ic_auto_rotate_default.png">
+                                <span>Auto-rotate</span>
+                            </div>
+                            <div class="qc-icon-wrapper">
+                                <img src="images/ic_airplane_default.png">
+                                <span>Airplane mode</span>
+                            </div>
+
+                            <div class="qc-icon-wrapper">
+                                <img src="images/ic_remote_default.png">
+                                <span>Remote</span>
+                            </div>
+                            <div class="qc-icon-wrapper">
+                                <img src="images/ic_camera_default.png">
+                                <span>Camera</span>
+                            </div>
+                            <div class="qc-icon-wrapper">
+                                <img src="images/ic_calculator_default.png">
+                                <span>Calculator</span>
+                            </div>
+                            <div class="qc-icon-wrapper">
+                                <img src="images/ic_flashlight_default.png">
+                                <span>Flashlight</span>
+                            </div>
+                            <p class="edit-para">EDIT</p>
+                        </div>
+
+
+                        <div class="qc-music-container">
+                            <img src="images/ic_music_player.png">
+                        </div>
+                    </div><!--  end of quick controls container  -->
+
+
+                </div>
+
+                <div id="appdrawer">
                     <div class="home-icons-scrim"></div>
-                    <ul>
+                    <div class="appdrawer-global-wrapper">
+                    <div class="appdrawer-bg"></div>
+                    <section class="appdrawer-container">
+                  <!--       <img src="images/bg-homeviewblur.jpg" style="position:absolute; top:0"> -->
+                           <img src="images/image-appdrawer.png">
+                    </section>
+                    </div>
+                    <ul class="home-icons">
                         <li class="app-home-icon" >
                             <div class="notification-no" id="phone"></div>
                             <img src="images-eui6/aic_phone.png" id="phone-button">
@@ -208,9 +276,11 @@
                         </li>
                         <li class="app-home-icon"><img src="images-eui6/aic-lelive.png"></li>
                         <li class="app-home-icon"><img src="images-eui6/aic-chrome.png"  id="reload-button"></li>
-                        <li class="app-home-icon"><img src="images-eui6/aic_appdrawer.png"></li>
+                        <li class="app-home-icon" id="appdrawer-button"><img src="images-eui6/aic_appdrawer.png"></li>
                     </ul>
+
                 </div>
+
                 <div id="page-wrapper">
                     <div id="scroller">
                         <div class = 'launcher-screen-row' id="droppable">
@@ -458,8 +528,7 @@
                                                     <div class="widget-title" data-widgetapps="calendar" data-widgetcolor="#c358cd">
                                                         <h2 class='lang-english'>Calendar</h2>
                                                     
-                                                        <p class="calendar-weekday">Thu</p>
-                                                        <p class="calendar-day">30</p>
+
                                                     </div>
                                                     <div class="more-content" id="more-calendar" data-container="widget-calendar" data-content="widget-content-calendar"></div>
                                                 </div>
@@ -665,17 +734,16 @@
                             <!--  end of minus 1  -->
                             <section id="zero" class="launcher-screen">
                                 <!-- <div class="minus1-container" style="position:absolute; left:-412px; width:412px; height:732px;background-color: orange; z-index:5000"></div> -->
+                                <div class="appblur-container"></div>
                                 <div class="screenmanager-icon"></div>
                                 <div class="homeapp-container"></div>
                                 <div class="google-searcharea">
                                     <input class="google-search" onclick="blur()"/>
                                     <div class="google-searchareavoice"></div>
                                 </div>
-                                <!--                             <div id="home-time-widget">
-                                    <div class="widgetbanner-time" id="fulltime-trigger">10:45</div>
-                                    <div class="widgetbanner-date">Thursday, January 30</div>
-                                    </div> -->
+
                                 <div class="home-app-list" >
+
                                     <ul class="listview-wrapper" id="home-sortable">
                                         <li class="app-icon-wrapper accept-drawer-app empty grid-hotspot" ></li>
                                         <li class="app-icon-wrapper"></li>
@@ -737,6 +805,7 @@
                                 </div>
                                 <!--  </div>  --><!--  end of gridlines  -->
                                 <div class="googlefolder-container" >
+
                                     <p class="googlefolder-title">Google
                                     <p>
                                     <li class="app-icon-wrapper">
@@ -780,6 +849,8 @@
                                         <p>Google Settings</p>
                                     </li>
                                 </div>
+
+
                             </section>
                             <!--  end of zero page  -->
                             <section id="plus1" class="launcher-screen">
@@ -839,6 +910,66 @@
                                     </li>
                                 </ul>
                             </section>
+
+<!--                             <section id="plus2" class="launcher-screen">
+                                <div id="font-wrapper">
+                                    <div id="font-scroller">
+                                    <div id="fonttest-abdroidclock">
+                                        <div>
+                                            EUI Clock Beta12 Bold
+                                            <p class="euiclock euiclock-bold">10:45 0123456789</p>
+                                            </div>
+                                        <div>
+                                            EUI Clock Beta12 Regular
+                                            <p class="euiclock euiclock-regular">10:45 0123456789</p>
+                                        </div>
+                                        <div>
+                                           EUI Clock Beta12 Light
+                                            <p class="euiclock euiclock-light">10:45 0123456789</p>
+                                        </div>
+                                    </div>
+
+                                    <div id="fonttest-roboto">
+                                        <div>
+                                            Roboto Regular
+                                            <p class="roboto roboto-regular">ABCDEFGHIJKJMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</p>
+
+                                            </div>
+                                        <div>
+                                            Roboto Light
+                                            <p class="roboto roboto-light">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890</p>
+                          
+                                        </div>
+                                        <div>
+                                            Roboto Thin
+                                            <p class="roboto roboto-thin">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890</p>
+                                    
+                                        </div>
+                                    </div>
+
+                                    <div id="fonttest-sourcesanspro">
+                                        <div>
+                                            Source Sans Regular (otf)
+                                            <p class="sourcesanspro sourcesanspro-regular-otf">10:45</p>
+                                            Source Sans Regular (ttf-web)
+                                            <p class="roboto sourcesanspro-regular-web">10:45</p>
+                                            </div>
+                                        <div>
+                                            Source Sans Light (otf)
+                                            <p class="sourcesanspro sourcesanspro-light-otf">10:45</p>
+                                            Source Sans Light (ttf-web)
+                                            <p class="sourcesanspro sourcesanspro-light-web">10:45</p>
+                                        </div>
+          
+                                    </div>
+
+                                </div>
+                                    </div>
+                            </section>
+                             <section id="plus3" class="launcher-screen">
+                             </screen> -->
+<!--                             <section id="plus4" class="launcher-screen">
+                             </screen> -->
                         </div>
                         <!--  end of launcher row -->
                     </div>
