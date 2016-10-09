@@ -47,16 +47,15 @@
 	height:272px;
 	border-top: solid 1px #333232;
 	border-bottom: solid 1px #333232;
-
+	border: dotted 1px #555;
 	padding: 0 20px;
-	overflow:hidden;
 	transition: all 0.5s
 }
 .shrink-qc .quickcontrols-icon-wrapper {
 	height:60px;
 	border-top: solid 1px transparent;
 	border-bottom: solid 1px transparent;
-
+	border: dotted 1px #555;
 	overflow: hidden;
 	transition: all .5s
 }
@@ -88,23 +87,15 @@
 	height:26px;
 	line-height: 26px;
 	padding: 0 20px;
-
 	transition: all 0.5s
 }
 
 .qc-icon-wrapper {
-	width: 92px;
+	width: 64px;
+	margin: 0 14px;
 	height: 115px;
-/*	border: dotted 1px aqua;*/
 	float: left;
 	text-align: center;
-	transition: all 0.5s
-}
-.shrink-qc .qc-icon-wrapper {
-	width:64px;
-	height:54px;
-/*	margin: 0 8px ;*/
-	transition: all 0.5s
 }
 
 .selected.qc-icon-wrapper img {
@@ -112,9 +103,15 @@
 	border-radius: 2px;
 }
 
+.shrink-qc .qc-icon-wrapper {
+	width:48px;
+	height:54px;
+	margin: 0 8px ;
+	transition: all 0.5s
 
+}
 .shrink-qc .qc-icon-wrapper:first-child {
-/*	margin: 0 8px 0 0;*/
+	margin: 0 8px 0 0;
 	transition: all 0.5s
 }
 
@@ -127,7 +124,7 @@
 .shrink-qc .qc-icon-wrapper img {
 	display:block;
 	margin: 10px auto;
-	padding: 4px 4px 4px 4px;
+	padding: 4px;
 	transform:scale(0.65);
 	transform-origin: top left;
 	transition: all 0.5s
@@ -142,10 +139,9 @@
 	font-size: 13px;
 	white-space: nowrap;
 	overflow: hidden;
-	opacity:0;
 }
 .shrink-qc .qc-icon-wrapper span {
-	opacity: 0;
+	display: none;
 }
 
 .cf:before,
