@@ -3,16 +3,18 @@
 	top: 0;
 	left:0;
 	width:412px;
-	height: 28px;
+	height: 0px;
+
 	background-image: url(../images/bg-homeviewblur.jpg);
-	background-position: center top;
+	background-repeat: no-repeat;
+	background-position: center 0;
 	z-index:5000;
 	transition: all 0.5s;
 }
 .notification-center::before {
 	content:"";
 	position: absolute;
-	top: 0;
+	top: 0px;
 	left:0;
 	width:412px;
 	height: inherit;
@@ -20,7 +22,7 @@
 }
 
 .notification-center.open-more {
-	height: 548px;
+	height: 520px;
 	transition: all 0.5s;
 }
 
@@ -28,7 +30,7 @@
     cursor: s-resize;
     height: 28px;
     width: 100%;
-    bottom: -5px;
+    bottom: -28px;
     background: purple;
     opacity:0.2;
     left: 0;
@@ -38,7 +40,7 @@
 	width: 412px;
 	height: auto;
 	position: absolute;
-	bottom: 23px;
+	bottom: 0;
 	transition: all 0.5s
 }
 .quickcontrols-icon-wrapper {
@@ -53,7 +55,7 @@
 	transition: all 0.5s
 }
 .shrink-qc .quickcontrols-icon-wrapper {
-	height:60px;
+	height:54px;
 	border-top: solid 1px transparent;
 	border-bottom: solid 1px transparent;
 
@@ -84,12 +86,11 @@
 }
 
 .shrink-qc .qc-timedate {
-	font-size:14px;
+/*	font-size:16px;
 	height:26px;
 	line-height: 26px;
 	padding: 0 20px;
-
-	transition: all 0.5s
+	transition: all 0.5s*/
 }
 
 .qc-icon-wrapper {
@@ -119,6 +120,7 @@
 }
 
 .qc-icon-wrapper img {
+	border: solid 1.5px transparent;
 	display:block;
 	margin: 20px auto 12px;
 	padding: 9px;
@@ -160,7 +162,7 @@
 .qc-buttons-container {
 	position: absolute;
 	right: 8px;
-	top: 40px;
+	top: 38px;
 	width: 72px;
 	height: 40px;
 	text-align: right;
@@ -172,9 +174,12 @@
 	display: block;
 	float: left;
 }
-
+#qc-more-button {
+	transition: all 0.25s;
+}
 .open-more #qc-more-button {
 	transform: rotate(180deg);
+	transition: all 0.25s;
 }
 .qc-brightness-container {
 	width: 412px;
@@ -191,7 +196,9 @@
 }
 
 .qc-brightness-container img {
-	padding: 30px 20px 14px;
+/*	padding: 30px 20px 14px;*/
+	width: 412px;
+	height:70px;
 	display: block;
 }
 
@@ -204,13 +211,13 @@
 	transition: all 0.5s
 }
 .qc-music-container img {
-/*	padding: 20px;*/
+	width:412px;
+	height:117px;
 	transition: all 0.5s;
 
 }
 
 .shrink-qc .qc-music-container {
-/*	padding: 0 20px;*/
 	height: 0;
 	transition: all 0.5s
 }

@@ -68,45 +68,54 @@ $(function() {
 
 // ============ Notification Quick Controls =======================
 //qc-more-button
-
+var step1Height = 82;
     $('#qc-more-button').on('tap', function(){
         $('.quickcontrols-container').toggleClass('shrink-qc');
         $('#qc-more-button').toggleClass('open-more')
         if($('#qc-more-button').hasClass('open-more')) {
-            console.log("This section called")
+   
             $( ".notification-center" ).attr('style', '');
             $('.notification-center').addClass('open-more');
-
-                    $('.qc-brightness-container').attr('style', '');
-                    $('.quickcontrols-icon-wrapper').attr('style', '');
-                    $('.qc-music-container').attr('style', '');
-                    $('.qc-callnote').attr('style', '');
+            $('.qc-brightness-container').attr('style', '');
+            $('.quickcontrols-icon-wrapper').attr('style', '');
+            $('.qc-music-container').attr('style', '');
+            $('.qc-callnote').attr('style', '');
+            $('.qc-icon-wrapper').attr('style', '');
+            $('.qc-icon-wrapper span').css('opacity', 1)
         } else {
-              console.log("********* This section called")
-            $( ".notification-center" ).css('height', '110px');
+        
+            $( ".notification-center" ).css('height', step1Height+'px');
             $('.notification-center').removeClass('open-more')
-
-                    $('.qc-brightness-container').attr('style', '');
-                    $('.quickcontrols-icon-wrapper').attr('style', '');
-                    $('.qc-music-container').attr('style', '');
-                    $('.qc-callnote').attr('style', '');
+            $('.qc-brightness-container').attr('style', '');
+            $('.quickcontrols-icon-wrapper').attr('style', '');
+            $('.qc-music-container').attr('style', '');
+            $('.qc-callnote').attr('style', '');
+            $('.qc-icon-wrapper').attr('style', '');
+            $('.qc-icon-wrapper span').css('opacity', 0)
 
         }
 
+    });
+    $('.qc-icon-wrapper').on('tap', function(){
+        $(this).toggleClass('selected')
     })
 
-var brightContainerHeight, controlIconsWrapperHeight, musicContainerHeight, callNoteHeight
+var brightContainerHeight, controlIconsWrapperHeight, musicContainerHeight, callNoteHeight;
+
     $('#notification-center').resizable({
         handles: 's',
-        minHeight:20,
-        animateDuration: "fast",
+        minHeight:0,
+        animateDuration: 100,
         start: function(event, ui){
              var currentBottom = ui.size.height;
-             if(currentBottom < 110) {
-                $('#notification-center').resizable("option","maxHeight",110);
+             console.log("In start section: ", currentBottom)
+             if(currentBottom < step1Height) {
+                console.log(" ++=The start function get called")
+                $('#notification-center').resizable("option","maxHeight",step1Height +1);
              }
-            if(currentBottom == 110) {
-                $('#notification-center').resizable("option","maxHeight",548);
+            if(currentBottom >= step1Height -5) {
+                console.log(" !!! The start function get called")
+                $('#notification-center').resizable("option","maxHeight",520);
                 $( ".notification-center" ).attr('style', '');
                 $('.notification-center').addClass('open-more')
              }
@@ -116,16 +125,17 @@ var brightContainerHeight, controlIconsWrapperHeight, musicContainerHeight, call
                 ui.size.width = ui.originalSize.width;
                 var currentBottom = ui.size.height;
 
-                if(currentBottom >110) {
 
-                 brightContainerHeight = (ui.size.height-110)/(548-110)*70
-                 controlIconsWrapperHeight = (272-60)*(ui.size.height-110)/(548-110) + 60
-                 musicContainerHeight = (ui.size.height-110)/(548-110)*117
-                 callNoteHeight = (ui.size.height-110)/(548-110)*40
-                 iconScale = (ui.size.height-110)/(548-110) * 0.35 + 0.65;
+                if(currentBottom >= step1Height) {
 
-                 iconWidth = (ui.size.height-110)/(548-110) * 28 + 64;
-                 iconHeight = (ui.size.height-110)/(548-110) * 61 + 54
+                 brightContainerHeight = (ui.size.height-step1Height)/(520-step1Height)*70
+                 controlIconsWrapperHeight = (272-60)*(ui.size.height-step1Height)/(520-step1Height) + 60
+                 musicContainerHeight = (ui.size.height-step1Height)/(520-step1Height)*117
+                 callNoteHeight = (ui.size.height-step1Height)/(520-step1Height)*40
+                 iconScale = (ui.size.height-step1Height)/(520-step1Height) * 0.35 + 0.65;
+
+                 iconWidth = (ui.size.height-step1Height)/(520-step1Height) * 28 + 64;
+                 iconHeight = (ui.size.height-step1Height)/(520-step1Height) * 61 + 54
                  //console.log("The icon scale should be: ", iconScale )
                  console.log("controlIconsWrapperHeight is: ", controlIconsWrapperHeight)
 
@@ -154,19 +164,28 @@ var brightContainerHeight, controlIconsWrapperHeight, musicContainerHeight, call
             var currentBottom = ui.size.height;
            // console.log('+++++currentBottom ', currentBottom)
 
-            if(currentBottom <= 110) {
-                if(currentBottom < 55) {
-                    $('#notification-center').animate({'height': '28px'},50)
+            if(currentBottom <= step1Height) {
+
+                $('.qc-brightness-container').css('height', 0);
+                $('.quickcontrols-icon-wrapper').css('height', '54px');
+                $('.qc-music-container').css('height', 0);
+                $('.qc-callnote').css('height', 0);
+                $('#notification-center').css('height', ui.size.height+'px')
+                $('.qc-icon-wrapper').css({'width': 64 + 'px', 'height': 54 + 'px' })
+                $('.qc-icon-wrapper img').css({'transform': 'scale(0.65)'})
+                    
+                if(currentBottom < 40) {
+                    $('#notification-center').animate({'height': '0'},50)
                     $('.quickcontrols-container').addClass('shrink-qc');
                     $('.qc-brightness-container').css('height', 0);
-                    $('.quickcontrols-icon-wrapper').css('height', '60px');
+                    $('.quickcontrols-icon-wrapper').css('height', '54px');
                     $('.qc-music-container').css('height', 0);
                     $('.qc-callnote').css('height', 0);
                 } else {
-                    $('#notification-center').animate({'height': '110px'},50)
+                    $('#notification-center').animate({'height': step1Height+'px'},50)
                     $('.quickcontrols-container').addClass('shrink-qc');
                     $('.qc-brightness-container').css('height', 0);
-                    $('.quickcontrols-icon-wrapper').css('height', '60px');
+                    $('.quickcontrols-icon-wrapper').css('height', '54px');
                     $('.qc-music-container').css('height', 0);
                     $('.qc-callnote').css('height', 0);
                 }
@@ -174,63 +193,41 @@ var brightContainerHeight, controlIconsWrapperHeight, musicContainerHeight, call
             } else {
                // console.log(brightContainerHeight, controlIconsWrapperHeight, musicContainerHeight, callNoteHeight)
                 if(currentBottom < 255) {
-                    //$('#notification-center').animate({'height': '110px'},50)
-                 // brightContainerHeight, controlIconsWrapperHeight, musicContainerHeight, callNoteHeight  
-                    $('#qc-more-button').removeClass('open-more');
-                    console.log("in the <255 section")
 
-                    // $('.qc-brightness-container').css('height', 0);
-                    // $('.quickcontrols-icon-wrapper').css('height', '60px');
-                    // $('.qc-music-container').css('height', 0);
-                    // $('.qc-callnote').css('height', 0);
+                    $('#qc-more-button').removeClass('open-more');
+
                     $('.qc-callnote').css('opacity',0);
                     $('.qc-icon-wrapper span').css('opacity', 0)
                     $('.qc-brightness-container').css('height', brightContainerHeight)
                     .animate({'height': '0'}, 150);
                     $('.quickcontrols-icon-wrapper').css('height', controlIconsWrapperHeight)
-                    .animate({'height': '60px'}, 150);
+                    .animate({'height': '54px'}, 150);
                     $('.qc-music-container').css('height', musicContainerHeight)
                     .animate({'height': '0'}, 150, function(){
 
                     });
                     $('.qc-callnote').css('height', callNoteHeight)
-                    .animate({'height': '0'}, 150, function(){
-                        
+                    .animate({'height': '0'}, 150, function(){  
                     });
 
-                    
-
-
-
-
-
-
-
-
                     $('#notification-center').css('height', notificationHeight+'px')
-                    .animate({'height': '110px'},150, function(){
-                        $('.quickcontrols-container').addClass('shrink-qc');
+                    .animate({'height': step1Height+'px'},150, function(){
+                    $('.quickcontrols-container').addClass('shrink-qc');
                     })
                 } else {
                     $('.quickcontrols-container').removeClass('shrink-qc');
                     $('#qc-more-button').addClass('open-more');
-                    var notificationHeight =23+ 26+brightContainerHeight+controlIconsWrapperHeight+musicContainerHeight+callNoteHeight
-                    console.log("&&&&&---notificationHeight is:", notificationHeight)
-                    $('#notification-center').css('height', notificationHeight+'px')
-                    .animate({'height': '548px'},150)
+                    var notificationHeight = brightContainerHeight + controlIconsWrapperHeight + musicContainerHeight + callNoteHeight
 
-                    // $('.qc-brightness-container').css('height', '70px');
-                    // $('.quickcontrols-icon-wrapper').css('height', '272px');
-                    // $('.qc-music-container').css('height', '117px');
-                    // $('.qc-callnote').css('height', '40px');
-                    // $('.qc-callnote').css('opacity',1);
+                    $('#notification-center').css('height', notificationHeight+'px')
+                    .animate({'height': '520px'},150)
 
                     $('.qc-brightness-container').css('height', brightContainerHeight)
                     .animate({'height': '70px'}, 150);
                     $('.quickcontrols-icon-wrapper').css('height', controlIconsWrapperHeight)
                     .animate({'height': '272px'}, 150, function(){
                     $('.qc-icon-wrapper span').css('opacity', 1)
-                }
+                     }
                     );
                     $('.qc-music-container').css('height', musicContainerHeight)
                     .animate({'height': '117px'}, 150, function(){
@@ -243,28 +240,14 @@ var brightContainerHeight, controlIconsWrapperHeight, musicContainerHeight, call
 
                     
 
-                     $('.qc-icon-wrapper').css({'width': iconWidth + 'px', 'height': 92 + 'px' }).animate({'width': iconWidth + 'px', 'height':115 + 'px' }, 150)
-                    // $('.qc-icon-wrapper img').css('transform', 'scale('+ iconScale +')').animate({'transform': 1}, 150)
-                               
-
-
-
+                     $('.qc-icon-wrapper').css({'width': iconWidth + 'px', 'height': iconHeight + 'px' }).animate({'width': 92 + 'px', 'height':115 + 'px' }, 150)
+                     $('.qc-icon-wrapper img').css('transform', 'scale('+ iconScale +')').animate({'transform': 1}, 150)
 
                 }
-
             }
-
-
         }
-
     })
 
-$('#notification-center').bind('resizestop', function(event, ui) {
-    // determine resize deltas
-
-    var delta_y = ui.size.height - ui.originalSize.height;
-    console.log("in the resize stop function ", delta_y)
-})
 
 
     // OPEN app drawer
