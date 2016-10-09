@@ -177,7 +177,7 @@
 #qc-more-button {
 	transition: all 0.25s;
 }
-.open-more #qc-more-button {
+.open-more#qc-more-button {
 	transform: rotate(180deg);
 	transition: all 0.25s;
 }
