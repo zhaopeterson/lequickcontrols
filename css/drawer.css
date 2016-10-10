@@ -697,18 +697,6 @@ background: rgba(0,0,0,0.2)
 	background: rgba(211, 3, 57, 0.5);
 }
 
-/*.ui-resizable-n {
-	position:absolute;
-    cursor: n-resize;
-    height: 91px;
-    width: 412px;
-    top: -5px;
-    left: 0;
-    background-image: url(../images/ic-pulldrawer.png);
-    background-repeat:no-repeat;
-    background-position:center 10px;
-}*/
-
 .ui-resizable-n {
     cursor: n-resize;
     height: 45px;
@@ -730,7 +718,13 @@ background: rgba(0,0,0,0.2)
 	z-index: 600;
 	width: 260px;
 	height:115px;
+	opacity: 0;
+	transition: all 0.25s;
 }
+.ui-resizable-n.pulling::before {
+	opacity: 1;
+	transition: all 0.25s;
+	}
 
 #appdrawer {
 	position:absolute;
@@ -780,10 +774,12 @@ transition: all 0.25s;
 	top:0;
 	height:0;
 	z-index: 90;
+	transition: all 0.1s 0.2s;
 }
+
 .open-appdrawer .home-icons {
 	opacity: 0;
-	transition: all 0.1s;
+	transition: all 0.1s 0.2s;
 }
 .appdrawer-container {
 	width: 412px;
@@ -796,6 +792,9 @@ transition: all 0.25s;
 	opacity: 1;
 	transition: all 0.5s;
 }
+
+
+
 .appdrawer-global-wrapper {
 	width: 412px;
 	height:732px;

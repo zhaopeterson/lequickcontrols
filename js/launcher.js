@@ -29,6 +29,13 @@ $(function() {
             $( "#appdrawer" ).removeClass('open-appdrawer')
             $( "#appdrawer" ).removeClass('pulling')
         }
+
+        $('#appdrawer').animate({'height': '91px', 'top': '641px'},250, function(){
+            $('#appdrawer').removeClass('pulling');
+            $('.appdrawer-container').css("opacity", 0);
+        })
+                    
+        $(".home-icons").css("opacity", dockOpacity).animate({'opacity': 1}, 150);
     }
 
   // elements
@@ -260,13 +267,6 @@ var brightContainerHeight, controlIconsWrapperHeight, musicContainerHeight, call
             $('.home-icons').attr('style', '');
             $( "#appdrawer" ).addClass('open-appdrawer');
             $( "#appdrawer" ).addClass('pulling');
-
-                        $('#appdrawer').animate({'height': '91px', 'top': '641px'},250, function(){
-                        $('#appdrawer').removeClass('pulling');
-                        $('.appdrawer-container').css("opacity", 0);
-                    })
-                    
-                    $(".home-icons").css("opacity", dockOpacity).animate({'opacity': 1}, 150);
         }
     });
 
@@ -279,6 +279,7 @@ var brightContainerHeight, controlIconsWrapperHeight, musicContainerHeight, call
             maxHeight: 732,
             start: function(event,ui){
                 $('#appdrawer').addClass('pulling')
+                $('.ui-resizable-n').addClass('pulling')
             },
             resize: function(event, ui) {
                 ui.size.width = ui.originalSize.width;
@@ -286,12 +287,10 @@ var brightContainerHeight, controlIconsWrapperHeight, musicContainerHeight, call
           
                 if(appdrawerTop <= 450) {
                     dockOpacity = 1
-                    console.log("this section get called")
+
                     if( appdrawerTop > 370 ) {
-                        console.log("between 450-371")
                         dockOpacity = (appdrawerTop -370)/80;
                     } else {
-                        console.log("<371")
                         dockOpacity = 0
                     }
                 }
@@ -309,15 +308,16 @@ var brightContainerHeight, controlIconsWrapperHeight, musicContainerHeight, call
 
                 if(appdrawerTop <=370) {
                     console.log("this section ===")
-                    $(".home-icons").css("opacity", 0)
-                   $('#appdrawer').css({'height':appdrawerHeight+'px', 'top': appdrawerTop+'px'}).animate({'height': '732px', 'top': '0'},250);
+                    $(".home-icons").css({"opacity" : 0, "z-index": '-1'})
+                    $('#appdrawer').css({'height':appdrawerHeight+'px', 'top': appdrawerTop+'px'}).animate({'height': '732px', 'top': '0'}, 250);
                 } else {
-                    $('#appdrawer').animate({'height': '91px', 'top': '641px'},250, function(){
+                    $('#appdrawer').animate({'height': '91px', 'top': '641px'}, 250, function(){
                         $('#appdrawer').removeClass('pulling');
+                        $('.ui-resizable-n').removeClass('pulling')
                         $('.appdrawer-container').css("opacity", 0);
                     })
                     
-                    $(".home-icons").css("opacity", dockOpacity).animate({'opacity': 1}, 150);
+                    $(".home-icons").css("opacity", dockOpacity).animate({"opacity" : 1, "z-index": '90'}, 150);
                 }
             }
           });
