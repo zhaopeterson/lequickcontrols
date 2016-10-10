@@ -118,6 +118,11 @@
 	transition: all 0.5s
 }
 
+.open-more .qc-icon-wrapper img {
+	transform:scale(1)!important;
+	transform-origin: top left;
+	transition: all 0.5s
+}
 .qc-icon-wrapper img {
 	border: solid 1.5px transparent;
 	display:block;

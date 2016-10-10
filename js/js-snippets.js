@@ -2,6 +2,8 @@
             handles: 'n',
             minHeight:91,
             maxHeight: 732,
+            animate:true,
+            animateDuration: "fast",
             start: function(event,ui){
                $('#appdrawer').css('background-position', 'center bottom;');
             },

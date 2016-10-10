@@ -33,6 +33,7 @@ $(function() {
         $('#appdrawer').animate({'height': '91px', 'top': '641px'},250, function(){
             $('#appdrawer').removeClass('pulling');
             $('.appdrawer-container').css("opacity", 0);
+            $('.ui-resizable-n').addClass('pulling')
         })
                     
         $(".home-icons").css("opacity", dockOpacity).animate({'opacity': 1}, 150);
@@ -113,18 +114,17 @@ var brightContainerHeight, controlIconsWrapperHeight, musicContainerHeight, call
     $('#notification-center').resizable({
         handles: 's',
         minHeight:0,
-        animateDuration: 100,
         start: function(event, ui){
              var currentBottom = ui.size.height;
              console.log("In start section: ", currentBottom)
              if(currentBottom < step1Height) {
-                console.log(" ++=The start function get called")
+
                 $('#notification-center').resizable("option","maxHeight",step1Height +1);
              }
             if(currentBottom >= step1Height -5) {
-                console.log(" !!! The start function get called")
+
                 $('#notification-center').resizable("option","maxHeight",520);
-                $( ".notification-center" ).attr('style', '');
+                $( '.notification-center' ).attr('style', '');
                 $('.notification-center').addClass('open-more')
              }
         },
@@ -143,9 +143,7 @@ var brightContainerHeight, controlIconsWrapperHeight, musicContainerHeight, call
                  iconScale = (ui.size.height-step1Height)/(520-step1Height) * 0.35 + 0.65;
 
                  iconWidth = (ui.size.height-step1Height)/(520-step1Height) * 28 + 64;
-                 iconHeight = (ui.size.height-step1Height)/(520-step1Height) * 61 + 54
-                 //console.log("The icon scale should be: ", iconScale )
-                 console.log("controlIconsWrapperHeight is: ", controlIconsWrapperHeight)
+                 iconHeight = (ui.size.height-step1Height)/(520-step1Height) * 61 + 54;
 
                 if (callNoteHeight == 40 ) {
                     $('.qc-callnote').css('opacity', 1)
@@ -164,7 +162,7 @@ var brightContainerHeight, controlIconsWrapperHeight, musicContainerHeight, call
                     $('.qc-callnote').css('height', callNoteHeight + 'px');
 
                     $('.qc-icon-wrapper').css({'width': iconWidth + 'px', 'height': iconHeight + 'px' })
-                    // $('.qc-icon-wrapper img').css('transform', 'scale('+ iconScale +')')
+
                 }
 
         },
@@ -267,6 +265,8 @@ var brightContainerHeight, controlIconsWrapperHeight, musicContainerHeight, call
             $('.home-icons').attr('style', '');
             $( "#appdrawer" ).addClass('open-appdrawer');
             $( "#appdrawer" ).addClass('pulling');
+            $('.ui-resizable-n').addClass('pulling')
+
         }
     });
 
@@ -1575,7 +1575,8 @@ function setPageScroll() {
             minHeight:91,
             maxHeight: 732,
             start: function(event,ui){
-                $('#appdrawer').addClass('pulling')
+                $('#appdrawer').addClass('pulling');
+                $('.ui-resizable-n').addClass('pulling')
             },
             resize: function(event, ui) {
                 ui.size.width = ui.originalSize.width;
@@ -1611,6 +1612,7 @@ function setPageScroll() {
                     $('#appdrawer').animate({'height': '91px', 'top': '641px'},250, function(){
                         $('#appdrawer').removeClass('pulling');
                         $('.appdrawer-container').css("opacity", 0);
+                        $('.ui-resizable-n').removeClass('pulling')
                     })
                     
                     $(".home-icons").css("opacity", dockOpacity).animate({'opacity': 1}, 150);
