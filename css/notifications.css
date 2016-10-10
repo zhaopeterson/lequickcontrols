@@ -4,7 +4,6 @@
 	left:0;
 	width:412px;
 	height: 0px;
-
 	background-image: url(../images/bg-homeviewblur.jpg);
 	background-repeat: no-repeat;
 	background-position: center 0;
@@ -31,7 +30,7 @@
     height: 28px;
     width: 100%;
     bottom: -28px;
-    background: purple;
+/*    background: purple;*/
     opacity:0.2;
     left: 0;
 }
@@ -214,7 +213,6 @@
 	width:412px;
 	height:117px;
 	transition: all 0.5s;
-
 }
 
 .shrink-qc .qc-music-container {

@@ -48,25 +48,18 @@
                 <h2> Cards Styles Controls</h2>
                 <div id="quickaccess-wrapper">
                     <div id="quickaccess-scroller">
-                        <div class="cards-style-container">
-                            <p>Solid Background Color</p>
-                            <button id='bg2c2c2c' class='bglayercolor selected' data-hex='#2c2c2c'>#2c2c2c</button>
-                            <button id='bg000000' class='bglayercolor' data-hex='#000000'>#000000</button>
-                        </div>
-                        <div class="cards-style-container">
-                            <p>Blur Image opacity</p>
-                            <button id='alpha50' class='bluropacity selected' data-alpha='0.5'>0.5</button>
-                            <button id='alpha25' class='bluropacity' data-alpha='0.25'>0.25</button>
-                        </div>
 
                         <div class="cards-style-container">
-                            <p>Card Scrim Opacity</p>
-
-                            <p>rgba(56, 56, 56, <span id="scrim">0.6</span> )</p>
-                            <div id="cardscrim-opacity"></div>
+                            <p>Add 1px accent border on top</p>
+                            <button id='accentborder-round' >Rounded Top</button>
+                            <button id='accentborder-noround'>No Rounded Top</button>
+                           
                         </div>
+
                         <div class="cards-style-container">
                             <p>Backgrounds Images</p>
+
+
                             <img class='bgstyle-thumb' data-bgimage = 'url(images-eui6/bg-bluepattern.jpg)'  data-blurimage = 'url(images-eui6/bg-bluepattern-blur.png)' src="images-eui6/bg-bluepattern.jpg">
                             <img class='bgstyle-thumb' data-bgimage = 'url(images-eui6/bg-cherryblossom.jpg)' data-blurimage = 'url(images-eui6/bg-cherryblossom-blur.png)' src="images-eui6/bg-cherryblossom.jpg">
                             <img class='bgstyle-thumb' data-bgimage = 'url(images-eui6/bg-prettygirl.jpg)' data-blurimage = 'url(images-eui6/bg-prettygirl-blur.png)' src="images-eui6/bg-prettygirl.jpg">
@@ -263,7 +256,106 @@
                     <div class="appdrawer-bg"></div>
                     <section class="appdrawer-container">
                   <!--       <img src="images/bg-homeviewblur.jpg" style="position:absolute; top:0"> -->
-                           <img src="images/image-appdrawer.png">
+                      <!--      <img src="images/image-appdrawer.png"> -->
+
+                           <div class="appdrawer-search-wrapper">
+                            <input class="search-app-input" id="search-app-input" placeholder="Search app ..."/>
+
+                           </div>
+                           <div class="search-terms-wrapper">
+                            <ul class="search-terms-list">
+                                <li class="selected">Most Recent</li>
+                                <li>A-Z</li>
+                                <li>Category</li>
+                            </ul>
+                           </div>
+
+                           <div id="appdrawer-apps-wrapper">
+                            <li class="appdrawer-icon-wrapper" id="calendar-app">
+                                            <img class='calendar-bg' src="images-eui6/aic_clock.png">
+                                            <p>Clock</p>
+
+                                        </li>
+                                        <li class="appdrawer-icon-wrapper" style="position: relative">
+                                            <img src="images-eui6/aic_calendar_bg.png" >
+                                             <p class="calendar-weekday">Thu</p>
+                                            <p class="calendar-day">30</p>
+                                            <p>Calendar</p>
+                                        </li>
+                                        <li class="appdrawer-icon-wrapper">
+                                            <img src="images-eui6/aic_contacts.png">
+                                            <p>Contacts</p>
+                                        </li>
+                                        <li class="appdrawer-icon-wrapper">
+                                            <img src="images-eui6/aic_weather.png">
+                                            <p>Weather</p>
+                                        </li>
+                                        <li class="appdrawer-icon-wrapper">
+                                            <img src="images-eui6/aic_mail.png">
+                                            <p>Mail</p>
+                                        </li>
+                                        <li class="appdrawer-icon-wrapper">
+                                            <img src="images-eui6/aic_compass.png">
+                                            <p>Compass</p>
+                                        </li>
+                                        <li class="appdrawer-icon-wrapper">
+                                            <img src="images-eui6/aic_game.png">
+                                            <p>Game Center</p>
+                                        </li>
+                                        <li class="appdrawer-icon-wrapper">
+                                            <img src="images-eui6/aic_myleeco.png">
+                                            <p>My Leeco</p>
+                                        </li>
+                                        <li class="appdrawer-icon-wrapper">
+                                            <img src="images-eui6/aic_player.png">
+                                            <p>Player</p>
+                                        </li>
+                                        <li class="appdrawer-icon-wrapper">
+                                            <img src="images-eui6/aic_music.png">
+                                            <p>Music</p>
+                                        </li>
+                                        <li class="appdrawer-icon-wrapper">
+                                            <img src="images-eui6/aic_settings.png">
+                                            <p>Settings</p>
+                                        </li>
+                                        <li class="appdrawer-icon-wrapper">
+                                            <img src="images-eui6/aic_gallery.png">
+                                            <p>Gallery</p>
+                                        </li>
+                                        <li class="appdrawer-icon-wrapper">
+                                        <img src="images-eui6/aic_downloads.png">
+                                            <p>Downloads</p>
+                                        </li>
+                                        <li class="appdrawer-icon-wrapper">
+                                            <img src="images-eui6/aic_updates.png">
+                                            <p>System Updates</p>
+                                        </li>
+                                        <li class="appdrawer-icon-wrapper">
+                                            <img src="images-eui6/aic_userguide.png">
+                                            <p>User Guide</p>
+                                        </li>
+                                        <li class="appdrawer-icon-wrapper">
+                                            <img src="images-eui6/aic_feedback.png">
+                                            <p>Feedback</p>
+                                        </li>
+                                        <li class="appdrawer-icon-wrapper">
+                                            <img src="images-eui6/aic_themes.png">
+                                            <p>Themes</p>
+                                        </li>
+                                        <li class="appdrawer-icon-wrapper">
+                                            <img src="images-eui6/aic_filemanager.png">
+                                            <p>Filemanager</p>
+                                        </li>
+                                        <li class="appdrawer-icon-wrapper">
+                                            <img src="images-eui6/aic_supermanager.png">
+                                            <p>Super Manager</p>
+                                        </li>
+                                        <li class="appdrawer-icon-wrapper">
+                                            <img src="images-eui6/aic_google.png">
+                                            <p>Google</p>
+                                        </li>
+                           </div>
+
                     </section>
                     </div>
                     <ul class="home-icons">
@@ -367,6 +459,7 @@
                                             </div>
                                             <!--  end of widget banner  -->
                                             <div class="widget-card" id="widget-recentapps">
+                                                <div class="accentborder"></div>
                                                 <div class="widget-card-header " id="widget-card-header-recentapps">
                                                     <div class="widget-title" id="widget-favapps-title" data-widgetapps="recentapps" data-widgetcolor="#18c9b2">
                                                         <h2 class='lang-english'>Favorite Apps</h2>
@@ -403,6 +496,7 @@
                                             </div>
                                             <!--  end of recent apps widget  -->
                                             <div class="widget-card" id="widget-places">
+                                                <div class="accentborder"></div>
                                                 <div class="widget-card-header" id="widget-card-header-places">
                                                     <div class="widget-title" id="widget-places-title" data-widgetapps="places" data-widgetcolor="#18c9b2">
                                                         <h2 class='lang-english'>Places Nearby</h2>
@@ -454,6 +548,7 @@
                                             </div>
                                             <!--  end of nearby widget  -->
                                             <div class="widget-card" id="widget-livevideo">
+                                                <div class="accentborder"></div>
                                                 <div class="widget-card-header" id="widget-card-header-livevideo">
                                                     <div class="widget-title" data-widgetapps="livevideo" data-widgetcolor="#0aa750">
                                                         <h2>Live</h2>
@@ -489,6 +584,7 @@
                                             </div>
                                             <!--  end of widget live video  -->
                                             <div class="widget-card" id="widget-sports">
+                                                <div class="accentborder"></div>
                                                 <div class="widget-card-header" id="widget-card-header-sports">
                                                     <div class="widget-title" data-widgetapps="sports" data-widgetcolor="#c358cd">
                                                         <h2 class='lang-english'>LeSports</h2>
@@ -525,6 +621,7 @@
                                             </div>
                                             <!--  end of widget sports  -->
                                             <div class="widget-card" id="widget-calendar">
+                                                <div class="accentborder"></div>
                                                 <div class="widget-card-header" id="widget-card-header-calendar">
                                                     <div class="widget-title" data-widgetapps="calendar" data-widgetcolor="#c358cd">
                                                         <h2 class='lang-english'>Calendar</h2>
@@ -552,6 +649,7 @@
                                             </div>
                                             <!--  end of widget * to do list -->
                                             <div class="widget-card" id="widget-notes">
+                                                <div class="accentborder"></div>
                                                 <div class="widget-card-header" id="widget-card-header-notes">
                                                     <div class="widget-title" data-widgetapps="notes" data-widgetcolor="#c358cd">
                                                         <h2>Notes</h2>
@@ -568,6 +666,7 @@
                                             </div>
                                             <!--  end of widget notes-->
                                             <div class="widget-card" id="widget-mail">
+                                                <div class="accentborder"></div>
                                                 <div class="widget-card-header" id="widget-card-header-mail">
                                                     <div class="widget-title" data-widgetapps="mail" data-widgetcolor="#c358cd">
                                                         <h2>Email</h2>
@@ -600,6 +699,7 @@
                                             </div>
                                             <!--  end of widget mail -->
                                             <div class="widget-card" id="widget-wallpaper">
+                                                <div class="accentborder"></div>
                                                 <div class="widget-card-header" id="widget-card-header-wallpaper">
                                                     <div class="widget-title" data-widgetapps="wallpaper" data-widgetcolor="#c358cd">
                                                         <h2>Wallpapers &#38; Themes</h2>
@@ -617,6 +717,7 @@
                                             </div>
                                             <!--  end of widget themes and wallpaper  -->
                                             <div class="widget-card" id="widget-games">
+                                                <div class="accentborder"></div>
                                                 <div class="widget-card-header" id="widget-card-header-games">
                                                     <div class="widget-title" data-widgetapps="games" data-widgetcolor="#c358cd">
                                                         <h2>LeZone</h2>
@@ -660,6 +761,7 @@
                                             </div>
                                             <!--  end of widget games -->
                                             <div class="widget-card" id="widget-devicestatus">
+                                                <div class="accentborder"></div>
                                                 <div class="widget-card-header" id="widget-card-header-devicestatus">
                                                     <div class="widget-title" data-widgetapps="devicestatus" data-widgetcolor="#c358cd">
                                                         <h2>Device Status</h2>
@@ -678,6 +780,7 @@
                                             </div>
                                             <!--  end of widget device status -->
                                             <div class="widget-card" id="widget-twitter">
+                                                <div class="accentborder"></div>
                                                 <div class="widget-card-header" id="widget-card-header-twitter">
                                                     <div class="widget-title" data-widgetapps="twitter" data-widgetcolor="#c358cd">
                                                         <h2>Twitter Moments</h2>
@@ -735,8 +838,8 @@
                             <!--  end of minus 1  -->
                             <section id="zero" class="launcher-screen">
                                 <!-- <div class="minus1-container" style="position:absolute; left:-412px; width:412px; height:732px;background-color: orange; z-index:5000"></div> -->
-                                <div class="appblur-container"></div>
-                                <div class="screenmanager-icon"></div>
+                              <!--   <div class="appblur-container"></div>
+                                <div class="screenmanager-icon"></div> -->
                                 <div class="homeapp-container"></div>
                                 <div class="google-searcharea">
                                     <input class="google-search" onclick="blur()"/>
@@ -753,8 +856,7 @@
                                         <li class="app-icon-wrapper" id="calendar-app">
                                             <img class='calendar-bg' src="images-eui6/aic_clock.png">
                                             <p>Clock</p>
-                                            <!--                                     <p class="calendar-weekday">Thu</p>
-                                                <p class="calendar-day">30</p> -->
+
                                         </li>
                                         <li class="app-icon-wrapper">
                                             <img src="images-eui6/aic_calendar_bg.png">

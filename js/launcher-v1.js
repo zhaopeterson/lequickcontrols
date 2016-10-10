@@ -27,7 +27,6 @@ $(function() {
         $('.quickaccess-container').removeClass('open-quickaccess');
         if ($( "#appdrawer" ).hasClass('open-appdrawer')) {
             $( "#appdrawer" ).removeClass('open-appdrawer')
-            $( "#appdrawer" ).removeClass('pulling')
         }
     }
 
@@ -145,7 +144,7 @@ var brightContainerHeight, controlIconsWrapperHeight, musicContainerHeight, call
                     } else {
                         $('.qc-callnote').css('opacity', 0)
                     }
-                    if(controlIconsWrapperHeight == 272 ){
+                    if(controlIconsWrapperHeight ==272 ){
                         $('.qc-icon-wrapper span').css('opacity', 1)
                     } else {
                         $('.qc-icon-wrapper span').css('opacity', 0)
@@ -259,66 +258,64 @@ var brightContainerHeight, controlIconsWrapperHeight, musicContainerHeight, call
             $(".appdrawer-container").attr('style', '');
             $('.home-icons').attr('style', '');
             $( "#appdrawer" ).addClass('open-appdrawer');
-            $( "#appdrawer" ).addClass('pulling');
-
-                        $('#appdrawer').animate({'height': '91px', 'top': '641px'},250, function(){
-                        $('#appdrawer').removeClass('pulling');
-                        $('.appdrawer-container').css("opacity", 0);
-                    })
-                    
-                    $(".home-icons").css("opacity", dockOpacity).animate({'opacity': 1}, 150);
         }
     });
 
-    // var appdrawerAlpha, appDrawerHeight;
-    // var drawerContentOpacity;
-    // var dockOpacity=1 ;
+var appdrawerAlpha;
         $( "#appdrawer" ).resizable({
             handles: 'n',
             minHeight:91,
             maxHeight: 732,
             start: function(event,ui){
-                $('#appdrawer').addClass('pulling')
+               $('#appdrawer').css('background-position', 'center bottom;');
             },
             resize: function(event, ui) {
                 ui.size.width = ui.originalSize.width;
+                $('#appdrawer').addClass('add-blurbg');
+
                 var appdrawerTop = ui.position.top;
-          
-                if(appdrawerTop <= 450) {
-                    dockOpacity = 1
-                    console.log("this section get called")
-                    if( appdrawerTop > 370 ) {
-                        console.log("between 450-371")
-                        dockOpacity = (appdrawerTop -370)/80;
-                    } else {
-                        console.log("<371")
-                        dockOpacity = 0
-                    }
-                }
+                var appdrawerOpacity = 1 - appdrawerTop /641;
+                var dockOpacity = appdrawerTop /641-0.5;
+                var blurValue = (1 - appdrawerTop /641) * 20 +'px';
+                var blurContainerTop =  732-ui.position.top -10 + 'px';
+
+                var drawerBgOpacity = 1;
                 
-                $(".home-icons").css("opacity", dockOpacity)
-                $('.appdrawer-container').css("opacity", 1);
-                console.log("dockOpacity in the resize function is: ", dockOpacity)
+
+
+                $(".appdrawer-container").css("opacity", appdrawerOpacity)
+                $('.home-icons').css("opacity", dockOpacity);
+                $('.appblur-container ').css("height", blurContainerTop)
+                appdrawerAlpha = appdrawerOpacity;
 
             },
             stop: function(e,ui) {
-                var appdrawerTop = ui.position.top;
+              var currentTop = ui.position.top;
 
-               
-                var appdrawerHeight = 732 - appdrawerTop
-
-                if(appdrawerTop <=370) {
-                    console.log("this section ===")
-                    $(".home-icons").css("opacity", 0)
-                   $('#appdrawer').css({'height':appdrawerHeight+'px', 'top': appdrawerTop+'px'}).animate({'height': '732px', 'top': '0'},250);
-                } else {
-                    $('#appdrawer').animate({'height': '91px', 'top': '641px'},250, function(){
-                        $('#appdrawer').removeClass('pulling');
-                        $('.appdrawer-container').css("opacity", 0);
-                    })
-                    
-                    $(".home-icons").css("opacity", dockOpacity).animate({'opacity': 1}, 150);
+                if($( "#appdrawer" ).hasClass('open-appdrawer')) {
+     
+                    $( "#appdrawer" ).removeClass('open-appdrawer')
                 }
+
+              if(currentTop < 366) {
+
+                $('#appdrawer::before').css('opacity', 1);
+                $('#appdrawer').animate({'height': '732px', 'top': '0'},250);
+
+                $(".appdrawer-container").css('opacity', appdrawerAlpha).animate({"opacity": 1}, 250, function(){
+                    console.log("animation completed: ", $(".appdrawer-container").css('opacity'))
+                })
+                $('.home-icons').animate({"opacity": 0}, 250) ;
+    
+              
+              } else {
+                $('#appdrawer').animate({'height': '91px', 'top': '641px'},250)
+                $(".appdrawer-container").css('opacity', appdrawerAlpha).animate({"opacity": 0}, 250)
+                $('.home-icons').css("opacity", 1) ;
+                $('.appdrawer-bg').css('opacity', 0)
+                $('#appdrawer').removeClass('add-blurbg')
+
+              }
             }
           });
 
@@ -341,6 +338,10 @@ var brightContainerHeight, controlIconsWrapperHeight, musicContainerHeight, call
     }
 
 
+    // })
+
+
+
  // ===================== EUI APPS TAPPED TO ADD TO THE RECENT
     
     // code dealwith add an recentapp card
@@ -361,53 +362,35 @@ var brightContainerHeight, controlIconsWrapperHeight, musicContainerHeight, call
         $('.quickaccess-container').addClass('open-quickaccess');
         setStylesScroller();
    
-        // $('.bluropacity').on('tap', function(e){
-        //     $('.bluropacity').removeClass('selected');
-        //     $(e.target).addClass('selected')
-        //     var alphavalue=$(e.target).attr('data-alpha');
-        //     blurBgOpacity = alphavalue;
-        //     $('#blurfilter-container').css('opacity', blurBgOpacity)
-        // });
+        $('.bluropacity').on('tap', function(e){
+            $('.bluropacity').removeClass('selected');
+            $(e.target).addClass('selected')
+            var alphavalue=$(e.target).attr('data-alpha');
+            blurBgOpacity = alphavalue;
+            $('#blurfilter-container').css('opacity', blurBgOpacity)
+        });
 
-        // $('.bglayercolor').on('tap', function(e){
-        //     $('.bglayercolor').removeClass('selected');
-        //     $(e.target).addClass('selected')
-        //     var bghex=$(e.target).attr('data-hex');
-        //     $('body').css('background-color', bghex)
-        // });
+        $('.bglayercolor').on('tap', function(e){
+            $('.bglayercolor').removeClass('selected');
+            $(e.target).addClass('selected')
+            var bghex=$(e.target).attr('data-hex');
+            $('body').css('background-color', bghex)
+        });
 
-        $('#accentborder-round').on('tap', function(){
-            console.log("accent border")
-            $(this).toggleClass('selected')
-            $('.accentborder').toggleClass('show-accentborder')
-        })
-//widgets-content-wrapper
+        $( "#cardscrim-opacity" ).slider({
+            range: "min",
+            value: 70,
+            min: 1,
+            max: 100,
+            slide: function( event, ui ) {
 
-        $('#accentborder-noround').on('tap', function(){
-
-            $(this).toggleClass('selected')
-            $('#widgets-content-wrapper').toggleClass('noround')
-            //$('.accentborder').toggleClass('show-accentborder')
-        })
-
-
-
-
-
-        // $( "#cardscrim-opacity" ).slider({
-        //     range: "min",
-        //     value: 70,
-        //     min: 1,
-        //     max: 100,
-        //     slide: function( event, ui ) {
-
-        //     scrimValue = ((ui.value)*0.01).toFixed(2);
-        //     console.log('ui.value is: ', ui.value)
-        //     $('#scrim').text(scrimValue);
-        //     var newBg = 'rgba(56,56,56,'+scrimValue +')'
-        //         $('.widget-content-container').css('background', newBg)
-        //     }
-        // });
+            scrimValue = ((ui.value)*0.01).toFixed(2);
+            console.log('ui.value is: ', ui.value)
+            $('#scrim').text(scrimValue);
+            var newBg = 'rgba(56,56,56,'+scrimValue +')'
+                $('.widget-content-container').css('background', newBg)
+            }
+        });
 
 
 
@@ -1488,14 +1471,7 @@ function showScrollInfo(){
    // console.log(pageScroll.options)
 }
 
-var blurBgOpacity = 0.75;
-
-
-    var appdrawerAlpha, appDrawerHeight;
-    var drawerContentOpacity;
-    var dockOpacity=1 ;
-
-
+var blurBgOpacity = 0.75
 function setPageScroll() {
     setTimeout(function () {
     pageScroll = new IScroll('#page-wrapper', {probeType: 3, startX: -412, scrollX: true, scrollY: false, momentum: false, snap: true, snapThreshold: 1, snapSpeed: 400, mouseWheel: true, tap: true});
@@ -1569,68 +1545,61 @@ function setPageScroll() {
                         'opacity':0
                 });
 
-            
+            // APP DRAWER    
             $( "#appdrawer" ).resizable({
             handles: 'n',
             minHeight:91,
-            maxHeight: 732,
-            start: function(event,ui){
-                $('#appdrawer').addClass('pulling')
-            },
             resize: function(event, ui) {
-                ui.size.width = ui.originalSize.width;
+                 ui.size.width = ui.originalSize.width;
+                $('#appdrawer').addClass('add-blurbg');
+
                 var appdrawerTop = ui.position.top;
-          
-                if(appdrawerTop <= 450) {
-                    dockOpacity = 1
-                    console.log("this section get called")
-                    if( appdrawerTop > 370 ) {
-                        console.log("between 450-371")
-                        dockOpacity = (appdrawerTop -370)/80;
-                    } else {
-                        console.log("<371")
-                        dockOpacity = 0
-                    }
-                }
+                var appdrawerOpacity = 1 - appdrawerTop /641;
+                var dockOpacity = appdrawerTop /641-0.5;
+                var blurValue = (1 - appdrawerTop /641) * 20 +'px';
+                var blurContainerTop =  732-ui.position.top -10 + 'px';
+
+                var drawerBgOpacity = 1;
                 
-                $(".home-icons").css("opacity", dockOpacity)
-                $('.appdrawer-container').css("opacity", 1);
+
+
+                $(".appdrawer-container").css("opacity", appdrawerOpacity)
+                $('.home-icons').css("opacity", dockOpacity);
+                $('.appblur-container ').css("height", blurContainerTop)
+                appdrawerAlpha = appdrawerOpacity;
 
             },
             stop: function(e,ui) {
-                var appdrawerTop = ui.position.top;
+             var currentTop = ui.position.top;
 
-                console.log('appdrawerTop is: ', drawerContentOpacity)
-                var appdrawerHeight = 732 - appdrawerTop
-
-                if(appdrawerTop <=370) {
-                    console.log("this section ===")
-                    $(".home-icons").css("opacity", 0)
-                   $('#appdrawer').css({'height':appdrawerHeight+'px', 'top': appdrawerTop+'px'}).animate({'height': '732px', 'top': '0'},250);
-                } else {
-                    $('#appdrawer').animate({'height': '91px', 'top': '641px'},250, function(){
-                        $('#appdrawer').removeClass('pulling');
-                        $('.appdrawer-container').css("opacity", 0);
-                    })
-                    
-                    $(".home-icons").css("opacity", dockOpacity).animate({'opacity': 1}, 150);
+                if($( "#appdrawer" ).hasClass('open-appdrawer')) {
+                    $( "#appdrawer" ).removeClass('open-appdrawer')
                 }
+
+              if(currentTop < 366) {
+
+                $('#appdrawer::before').css('opacity', 1);
+                $('#appdrawer').animate({'height': '732px', 'top': '0'},250);
+
+                $(".appdrawer-container").css('opacity', appdrawerAlpha).animate({"opacity": 1}, 250, function(){
+                    console.log("animation completed: ", $(".appdrawer-container").css('opacity'))
+                })
+                $('.home-icons').animate({"opacity": 0}, 250) ;
+    
+              
+              } else {
+                $('#appdrawer').animate({'height': '91px', 'top': '641px'},250)
+                $(".appdrawer-container").css('opacity', appdrawerAlpha).animate({"opacity": 0}, 250)
+                $('.home-icons').css("opacity", 1) ;
+                $('.appdrawer-bg').css('opacity', 0)
+                //$('#appdrawer').css('background-size', '412px 0');
+                $('#appdrawer').removeClass('add-blurbg')
+
+              }
             }
           });
-
-          
-
-
-
-
-
-
-
-
-
-
             }
-        } // end of for
+        }
     })//end of scroll end
 
     }, 1000)

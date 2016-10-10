@@ -1293,3 +1293,62 @@ padding: 15px;
 	background-size:27px 27px;
 	background-position:center right 20px;
 }
+
+.accentborder {
+	position: absolute;
+	width:394px;
+	height: 1px;
+	top:0;
+	left:0px;
+	display: none;
+}
+.accentborder.show-accentborder {
+	display: block;
+}
+#widget-recentapps .accentborder {
+	background-color: #d9b447;
+}
+#widget-places .accentborder {
+	background-color: #c40ba8;
+}
+
+#widget-livevideo .accentborder {
+	background-color: #5fc035;
+}
+
+#widget-sports .accentborder {
+	background-color: #c64337;
+}
+
+#widget-calendar .accentborder {
+	background-color: #f6283d;
+}
+
+#widget-notes .accentborder {
+	background-color: #e0a700;
+}
+
+#widget-mail .accentborder {
+	background-color: #1318eb;
+}
+
+#widget-wallpaper .accentborder {
+	background-color: #9a3fb6;
+}
+
+#widget-games .accentborder {
+	background-color: #453182;
+}
+
+#widget-devicestatus .accentborder {
+	background-color: #828282;
+}
+
+#widget-twitter .accentborder {
+	background-color: #3780b5;
+}
+
+.noround  .widget-card{
+	border-top-left-radius: 0;
+	border-top-right-radius: 0
+}
