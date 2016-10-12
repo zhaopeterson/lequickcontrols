@@ -85,7 +85,7 @@ height:24px;
 padding:0;
 font-size:14px;
 position:relative;
-z-index:-1;
+z-index:0;
 }
 .statusbar-wrapper {
 position:absolute;
@@ -164,6 +164,9 @@ width:412px;
 height:732px;
 margin:0 auto;
 overflow:hidden;
+background-image: url(../images/bg-lockshadow.png);
+background-repeat: no-repeat;
+background-position: center bottom;
 }
 
 #page-wrapper.edit-mode {
@@ -339,7 +342,7 @@ opacity:0;
 	left:0;
 	width: 412px;
 	height: 45px;
-	background: linear-gradient(to bottom,rgba(255,255,255,0)  0%,rgba(0,0,0,0.25) 100%);
+	background: url(../images/bg-minus1dockshadow.png)
 }
 
 

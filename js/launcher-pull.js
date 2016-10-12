@@ -27,18 +27,16 @@ $(function() {
         $('.quickaccess-container').removeClass('open-quickaccess');
         if ($( "#appdrawer" ).hasClass('open-appdrawer')) {
             $( "#appdrawer" ).removeClass('open-appdrawer')
-            $( "#appdrawer" ).removeClass('pulling');
-            $('.ui-resizable-n').removeClass('pulling');
-            $('.dockscreen-scrim').removeClass('notification-on')
+            $( "#appdrawer" ).removeClass('pulling')
         }
 
-        // $('#appdrawer').animate({'height': '91px', 'top': '641px'},250, function(){
-        //     $('#appdrawer').removeClass('pulling');
-        //     $('.appdrawer-container').css("opacity", 0);
-        //     $('.ui-resizable-n').addClass('pulling')
-        // })
+        $('#appdrawer').animate({'height': '91px', 'top': '641px'},250, function(){
+            $('#appdrawer').removeClass('pulling');
+            $('.appdrawer-container').css("opacity", 0);
+            $('.ui-resizable-n').addClass('pulling')
+        })
                     
-        // $(".home-icons").css("opacity", dockOpacity).animate({'opacity': 1}, 150);
+        $(".home-icons").css("opacity", dockOpacity).animate({'opacity': 1}, 150);
     }
 
   // elements
@@ -79,31 +77,23 @@ $(function() {
 
 // ============ Notification Quick Controls =======================
 //qc-more-button
-var qcImg2, qcImg;
-if(qcImg ==undefined ){
-    qcImg2 = 'url(images-eui6/bg-qc-prettygirlblur.jpg)'
-} 
 var step1Height = 82;
     $('#qc-more-button').on('tap', function(){
-
-        console.log(qcImg)
         $('.quickcontrols-container').toggleClass('shrink-qc');
         $('#qc-more-button').toggleClass('open-more')
         if($('#qc-more-button').hasClass('open-more')) {
-            //$( ".notification-center" ).attr('style','')
-            $( ".notification-center" ).attr('style', 'height: 520px; background-image:'+qcImg2);
+   
+            $( ".notification-center" ).attr('style', '');
             $('.notification-center').addClass('open-more');
             $('.qc-brightness-container').attr('style', '');
             $('.quickcontrols-icon-wrapper').attr('style', '');
             $('.qc-music-container').attr('style', '');
             $('.qc-callnote').attr('style', '');
             $('.qc-icon-wrapper').attr('style', '');
-            $('.qc-icon-wrapper span').css('opacity', 1);
-            $('#notification-center').resizable('disable')
+            $('.qc-icon-wrapper span').css('opacity', 1)
         } else {
         
             $( ".notification-center" ).css('height', step1Height+'px');
-            $( ".notification-center" ).attr('style', 'height: 82px; background-image:'+qcImg2);
             $('.notification-center').removeClass('open-more')
             $('.qc-brightness-container').attr('style', '');
             $('.quickcontrols-icon-wrapper').attr('style', '');
@@ -111,71 +101,167 @@ var step1Height = 82;
             $('.qc-callnote').attr('style', '');
             $('.qc-icon-wrapper').attr('style', '');
             $('.qc-icon-wrapper span').css('opacity', 0)
-            $('#notification-center').resizable('enable')
         }
 
     });
-    $('.qc-icon-wrapper').on('tap', function(e){
-        $(this).toggleClass('selected');
-        var origSrc = 'images/'+$(this).attr('data-iconsrc');
-       
-        var selectedSrc ='images/'+ $(this).attr('data-iconselectedsrc');
-
-        if($(this).hasClass('selected')) {
-            console.log($(e.target).find('img'))
-            $(this).find('img').attr('src', selectedSrc)
-        } else {
-            $(this).find('img').attr('src', origSrc)
-        }
+    $('.qc-icon-wrapper').on('tap', function(){
+        $(this).toggleClass('selected')
     })
 
 var brightContainerHeight, controlIconsWrapperHeight, musicContainerHeight, callNoteHeight;
 
-
     $('#notification-center').resizable({
         handles: 's',
         minHeight:0,
-        maxHeight: 82,
         start: function(event, ui){
-            $('.dockscreen-scrim').addClass('notification-on')
+             var currentBottom = ui.size.height;
+             console.log("In start section: ", currentBottom)
+             if(currentBottom < step1Height) {
+
+                $('#notification-center').resizable("option","maxHeight",step1Height +1);
+             }
+            if(currentBottom >= step1Height -5) {
+
+                $('#notification-center').resizable("option","maxHeight",520);
+                $( '.notification-center' ).attr('style', '');
+                $('.notification-center').addClass('open-more')
+             }
         },
 
         resize: function(event, ui) {
                 ui.size.width = ui.originalSize.width;
                 var currentBottom = ui.size.height;
+
+
+                if(currentBottom >= step1Height) {
+
+                 brightContainerHeight = (ui.size.height-step1Height)/(520-step1Height)*70
+                 controlIconsWrapperHeight = (272-60)*(ui.size.height-step1Height)/(520-step1Height) + 60
+                 musicContainerHeight = (ui.size.height-step1Height)/(520-step1Height)*117
+                 callNoteHeight = (ui.size.height-step1Height)/(520-step1Height)*40
+                 iconScale = (ui.size.height-step1Height)/(520-step1Height) * 0.35 + 0.65;
+
+                 iconWidth = (ui.size.height-step1Height)/(520-step1Height) * 28 + 64;
+                 iconHeight = (ui.size.height-step1Height)/(520-step1Height) * 61 + 54;
+
+                if (callNoteHeight == 40 ) {
+                    $('.qc-callnote').css('opacity', 1)
+                    } else {
+                        $('.qc-callnote').css('opacity', 0)
+                    }
+                    if(controlIconsWrapperHeight == 272 ){
+                        $('.qc-icon-wrapper span').css('opacity', 1)
+                    } else {
+                        $('.qc-icon-wrapper span').css('opacity', 0)
+                    }
+
+                    $('.qc-brightness-container').css('height', brightContainerHeight + 'px');
+                    $('.quickcontrols-icon-wrapper').css('height', controlIconsWrapperHeight + 'px');
+                    $('.qc-music-container').css('height', musicContainerHeight + 'px');
+                    $('.qc-callnote').css('height', callNoteHeight + 'px');
+
+                    $('.qc-icon-wrapper').css({'width': iconWidth + 'px', 'height': iconHeight + 'px' })
+
+                }
+
         },
         stop: function(event, ui) {
             var currentBottom = ui.size.height;
-            if(currentBottom <= step1Height) {          
+           // console.log('+++++currentBottom ', currentBottom)
+
+            if(currentBottom <= step1Height) {
+
+                $('.qc-brightness-container').css('height', 0);
+                $('.quickcontrols-icon-wrapper').css('height', '54px');
+                $('.qc-music-container').css('height', 0);
+                $('.qc-callnote').css('height', 0);
+                $('#notification-center').css('height', ui.size.height+'px')
+                $('.qc-icon-wrapper').css({'width': 64 + 'px', 'height': 54 + 'px' })
+                $('.qc-icon-wrapper img').css({'transform': 'scale(0.65)'})
+                    
                 if(currentBottom < 40) {
-                    $('#notification-center').animate({'height': '0'},0);
-                    $('.dockscreen-scrim').removeClass('notification-on')
+                    $('#notification-center').animate({'height': '0'},50)
+                    $('.quickcontrols-container').addClass('shrink-qc');
+                    $('.qc-brightness-container').css('height', 0);
+                    $('.quickcontrols-icon-wrapper').css('height', '54px');
+                    $('.qc-music-container').css('height', 0);
+                    $('.qc-callnote').css('height', 0);
                 } else {
-                    $('#notification-center').animate({'height': step1Height+'px'},0)
-                    $('.dockscreen-scrim').addClass('notification-on')
-                }        
-            } 
+                    $('#notification-center').animate({'height': step1Height+'px'},50)
+                    $('.quickcontrols-container').addClass('shrink-qc');
+                    $('.qc-brightness-container').css('height', 0);
+                    $('.quickcontrols-icon-wrapper').css('height', '54px');
+                    $('.qc-music-container').css('height', 0);
+                    $('.qc-callnote').css('height', 0);
+                }
+                
+            } else {
+               // console.log(brightContainerHeight, controlIconsWrapperHeight, musicContainerHeight, callNoteHeight)
+                if(currentBottom < 255) {
+
+                    $('#qc-more-button').removeClass('open-more');
+
+                    $('.qc-callnote').css('opacity',0);
+                    $('.qc-icon-wrapper span').css('opacity', 0)
+                    $('.qc-brightness-container').css('height', brightContainerHeight)
+                    .animate({'height': '0'}, 150);
+                    $('.quickcontrols-icon-wrapper').css('height', controlIconsWrapperHeight)
+                    .animate({'height': '54px'}, 150);
+                    $('.qc-music-container').css('height', musicContainerHeight)
+                    .animate({'height': '0'}, 150, function(){
+
+                    });
+                    $('.qc-callnote').css('height', callNoteHeight)
+                    .animate({'height': '0'}, 150, function(){  
+                    });
+
+                    $('#notification-center').css('height', notificationHeight+'px')
+                    .animate({'height': step1Height+'px'},150, function(){
+                    $('.quickcontrols-container').addClass('shrink-qc');
+                    })
+                } else {
+                    $('.quickcontrols-container').removeClass('shrink-qc');
+                    $('#qc-more-button').addClass('open-more');
+                    var notificationHeight = brightContainerHeight + controlIconsWrapperHeight + musicContainerHeight + callNoteHeight
+
+                    $('#notification-center').css('height', notificationHeight+'px')
+                    .animate({'height': '520px'},150)
+
+                    $('.qc-brightness-container').css('height', brightContainerHeight)
+                    .animate({'height': '70px'}, 150);
+                    $('.quickcontrols-icon-wrapper').css('height', controlIconsWrapperHeight)
+                    .animate({'height': '272px'}, 150, function(){
+                    $('.qc-icon-wrapper span').css('opacity', 1)
+                     }
+                    );
+                    $('.qc-music-container').css('height', musicContainerHeight)
+                    .animate({'height': '117px'}, 150, function(){
+
+                    });
+                    $('.qc-callnote').css('height', callNoteHeight)
+                    .animate({'height': '40px'}, 150, function(){
+                        $('.qc-callnote').css('opacity',1);
+                    });
+
+                    
+
+                     $('.qc-icon-wrapper').css({'width': iconWidth + 'px', 'height': iconHeight + 'px' }).animate({'width': 92 + 'px', 'height':115 + 'px' }, 150)
+                     $('.qc-icon-wrapper img').css('transform', 'scale('+ iconScale +')').animate({'transform': 1}, 150)
+
+                }
+            }
         }
     })
 
-    $('.dockscreen-scrim').on('tap', function(){
-        $('.dockscreen-scrim').removeClass('notification-on');
-         $('#notification-center').animate({'height': '0'},50);
-         if($('#notification-center').hasClass('open-more')) {
-            $('#notification-center').removeClass('open-more');
-            $('#qc-more-button').removeClass('open-more')
-         }
-         $('#notification-center').resizable('enable')
-    })
 
 
     // OPEN app drawer
 
     $('#appdrawer-button').on("tap", function(){
         if(!$( "#appdrawer" ).hasClass('open-appdrawer')) {
-            // $( "#appdrawer" ).attr('style', '');
-            // $(".appdrawer-container").attr('style', '');
-            // $('.home-icons').attr('style', '');
+            $( "#appdrawer" ).attr('style', '');
+            $(".appdrawer-container").attr('style', '');
+            $('.home-icons').attr('style', '');
             $( "#appdrawer" ).addClass('open-appdrawer');
             $( "#appdrawer" ).addClass('pulling');
             $('.ui-resizable-n').addClass('pulling')
@@ -186,54 +272,54 @@ var brightContainerHeight, controlIconsWrapperHeight, musicContainerHeight, call
     // var appdrawerAlpha, appDrawerHeight;
     // var drawerContentOpacity;
     // var dockOpacity=1 ;
-        // $( "#appdrawer" ).resizable({
-        //     handles: 'n',
-        //     minHeight:91,
-        //     maxHeight: 732,
-        //     start: function(event,ui){
-        //         $('#appdrawer').addClass('pulling')
-        //         $('.ui-resizable-n').addClass('pulling')
-        //     },
-        //     resize: function(event, ui) {
-        //         ui.size.width = ui.originalSize.width;
-        //         var appdrawerTop = ui.position.top;
+        $( "#appdrawer" ).resizable({
+            handles: 'n',
+            minHeight:91,
+            maxHeight: 732,
+            start: function(event,ui){
+                $('#appdrawer').addClass('pulling')
+                $('.ui-resizable-n').addClass('pulling')
+            },
+            resize: function(event, ui) {
+                ui.size.width = ui.originalSize.width;
+                var appdrawerTop = ui.position.top;
           
-        //         if(appdrawerTop <= 450) {
-        //             dockOpacity = 1
+                if(appdrawerTop <= 450) {
+                    dockOpacity = 1
 
-        //             if( appdrawerTop > 370 ) {
-        //                 dockOpacity = (appdrawerTop -370)/80;
-        //             } else {
-        //                 dockOpacity = 0
-        //             }
-        //         }
+                    if( appdrawerTop > 370 ) {
+                        dockOpacity = (appdrawerTop -370)/80;
+                    } else {
+                        dockOpacity = 0
+                    }
+                }
                 
-        //         $(".home-icons").css("opacity", dockOpacity)
-        //         $('.appdrawer-container').css("opacity", 1);
-        //         console.log("dockOpacity in the resize function is: ", dockOpacity)
+                $(".home-icons").css("opacity", dockOpacity)
+                $('.appdrawer-container').css("opacity", 1);
+                console.log("dockOpacity in the resize function is: ", dockOpacity)
 
-        //     },
-        //     stop: function(e,ui) {
-        //         var appdrawerTop = ui.position.top;
+            },
+            stop: function(e,ui) {
+                var appdrawerTop = ui.position.top;
 
                
-        //         var appdrawerHeight = 732 - appdrawerTop
+                var appdrawerHeight = 732 - appdrawerTop
 
-        //         if(appdrawerTop <=370) {
-        //             console.log("this section ===")
-        //             $(".home-icons").css({"opacity" : 0, "z-index": '-1'})
-        //             $('#appdrawer').css({'height':appdrawerHeight+'px', 'top': appdrawerTop+'px'}).animate({'height': '732px', 'top': '0'}, 250);
-        //         } else {
-        //             $('#appdrawer').animate({'height': '91px', 'top': '641px'}, 250, function(){
-        //                 $('#appdrawer').removeClass('pulling');
-        //                 $('.ui-resizable-n').removeClass('pulling')
-        //                 $('.appdrawer-container').css("opacity", 0);
-        //             })
+                if(appdrawerTop <=370) {
+                    console.log("this section ===")
+                    $(".home-icons").css({"opacity" : 0, "z-index": '-1'})
+                    $('#appdrawer').css({'height':appdrawerHeight+'px', 'top': appdrawerTop+'px'}).animate({'height': '732px', 'top': '0'}, 250);
+                } else {
+                    $('#appdrawer').animate({'height': '91px', 'top': '641px'}, 250, function(){
+                        $('#appdrawer').removeClass('pulling');
+                        $('.ui-resizable-n').removeClass('pulling')
+                        $('.appdrawer-container').css("opacity", 0);
+                    })
                     
-        //             $(".home-icons").css("opacity", dockOpacity).animate({"opacity" : 1, "z-index": '90'}, 150);
-        //         }
-        //     }
-        //   });
+                    $(".home-icons").css("opacity", dockOpacity).animate({"opacity" : 1, "z-index": '90'}, 150);
+                }
+            }
+          });
 
 
 
@@ -326,15 +412,9 @@ var brightContainerHeight, controlIconsWrapperHeight, musicContainerHeight, call
 
         $('.bgstyle-thumb').on('tap', function(e){
             $('.bgstyle-thumb').removeClass('selected');
-            $(e.target).addClass('selected');
+            $(e.target).addClass('selected')
             var bgImg = $(e.target).attr('data-bgimage');
-            var blurImg = $(e.target).attr('data-blurimage');
-            qcImg = $(e.target).attr('data-qcbg');
-            qcImg2 = qcImg.replace('../', '');
-            console.log('qcImg2 is: ', qcImg2)
-            var adImg = $(e.target).attr('data-adbg');
-
-            console.log('adImg is: ', adImg, $('#appdrawer.open-appdrawer').css('background-image'))
+            var blurImg = $(e.target).attr('data-blurimage')
 
             $('#sharp-container').css({
                 'background-image': bgImg
@@ -342,12 +422,6 @@ var brightContainerHeight, controlIconsWrapperHeight, musicContainerHeight, call
             $('#blurfilter-container').css({
                 'background-image': blurImg
             });
-            $('.notification-center').css({
-                'background-image': qcImg
-            })
-            $('#appdrawer').css({
-                'background-image': adImg
-            })
             if (bgImg == 'url(images-eui6/bg-whitecrack.jpg)' || bgImg == 'url(images-eui6/bg-snow.jpg)') {
                 $('#zero, #plus1').css('color', '#000')
             } else {
@@ -1460,6 +1534,7 @@ function setPageScroll() {
 
 
     pageScroll.on('scrollEnd', function(){
+       // console.log('--------scrollend---------', this.x)
         var pageWidth = $('.launcher-screen').width(),
         scrollOffset = this.x,
         totalPages = $('.launcher-screen').length;
@@ -1493,11 +1568,73 @@ function setPageScroll() {
                         'opacity':0
                 });
 
+            
+            $( "#appdrawer" ).resizable({
+            handles: 'n',
+            minHeight:91,
+            maxHeight: 732,
+            start: function(event,ui){
+                $('#appdrawer').addClass('pulling');
+                $('.ui-resizable-n').addClass('pulling')
+            },
+            resize: function(event, ui) {
+                ui.size.width = ui.originalSize.width;
+                var appdrawerTop = ui.position.top;
+          
+                if(appdrawerTop <= 450) {
+                    dockOpacity = 1
+                    console.log("this section get called")
+                    if( appdrawerTop > 370 ) {
+                        console.log("between 450-371")
+                        dockOpacity = (appdrawerTop -370)/80;
+                    } else {
+                        console.log("<371")
+                        dockOpacity = 0
+                    }
+                }
+                
+                $(".home-icons").css("opacity", dockOpacity)
+                $('.appdrawer-container').css("opacity", 1);
+
+            },
+            stop: function(e,ui) {
+                var appdrawerTop = ui.position.top;
+
+                console.log('appdrawerTop is: ', drawerContentOpacity)
+                var appdrawerHeight = 732 - appdrawerTop
+
+                if(appdrawerTop <=370) {
+                    console.log("this section ===")
+                    $(".home-icons").css("opacity", 0)
+                   $('#appdrawer').css({'height':appdrawerHeight+'px', 'top': appdrawerTop+'px'}).animate({'height': '732px', 'top': '0'},250);
+                } else {
+                    $('#appdrawer').animate({'height': '91px', 'top': '641px'},250, function(){
+                        $('#appdrawer').removeClass('pulling');
+                        $('.appdrawer-container').css("opacity", 0);
+                        $('.ui-resizable-n').removeClass('pulling')
+                    })
+                    
+                    $(".home-icons").css("opacity", dockOpacity).animate({'opacity': 1}, 150);
+                }
+            }
+          });
+
+          
+
+
+
+
+
+
+
+
+
+
             }
         } // end of for
     })//end of scroll end
 
-    }, 1300)
+    }, 1000)
 }
 
 // snap: 'div.launcher-screen',
@@ -1512,6 +1649,10 @@ function setWidgetSettingsScroll() {
     widgetSettingsScroll = new IScroll('#widget-settings-wrapper', { scrollX: false, scrollY: true, mouseWheel: true, bindToWrapper: true });
 }
 
+// function setFontScroll() {
+ 
+//     fontScroll = new IScroll('#font-wrapper', { scrollX: true, scrollY: true, mouseWheel: true, bindToWrapper: true });
+// }
 
 function setToprowScroll() {
     toprrowScroll = new IScroll('#toprow-wrapper', { scrollX: true, scrollY: false, mouseWheel: true, bindToWrapper: true });
